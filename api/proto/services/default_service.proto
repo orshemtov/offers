@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+package openapitools.services.defaultservice;
+
+import "google/protobuf/empty.proto";
+import public "models/item.proto";
+import public "models/offer.proto";
+
+service DefaultService {
+  rpc ImagesPost (ImagesPostRequest) returns (google.protobuf.Empty);
+
+  rpc ItemsGet (google.protobuf.Empty) returns (ItemsGetResponse);
+
+  rpc ItemsItemIdDelete (ItemsItemIdDeleteRequest) returns (google.protobuf.Empty);
+
+  rpc ItemsItemIdGet (ItemsItemIdGetRequest) returns (Item);
+
+  rpc ItemsItemIdPut (ItemsItemIdPutRequest) returns (Item);
+
+  rpc ItemsPost (ItemsPostRequest) returns (Item);
+
+  rpc OffersGet (google.protobuf.Empty) returns (OffersGetResponse);
+
+  rpc OffersOfferIdGet (OffersOfferIdGetRequest) returns (Offer);
+
+  rpc OffersOfferIdPut (OffersOfferIdPutRequest) returns (Offer);
+
+  rpc OffersPost (OffersPostRequest) returns (Offer);
+
+}
+
+message ImagesPostRequest {
+  repeated string requestBody = 1;
+
+}
+
+message ItemsGetResponse {
+  repeated Item data = 1;
+}
+
+message ItemsItemIdDeleteRequest {
+  string itemId = 1;
+
+}
+
+message ItemsItemIdGetRequest {
+  string itemId = 1;
+
+}
+
+message ItemsItemIdPutRequest {
+  string itemId = 1;
+  Item item = 2;
+
+}
+
+message ItemsPostRequest {
+  Item item = 1;
+
+}
+
+message OffersGetResponse {
+  repeated Offer data = 1;
+}
+
+message OffersOfferIdGetRequest {
+  string offerId = 1;
+
+}
+
+message OffersOfferIdPutRequest {
+  string offerId = 1;
+  Offer offer = 2;
+
+}
+
+message OffersPostRequest {
+  Offer offer = 1;
+
+}
+

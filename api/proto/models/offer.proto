@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package openapitools;
+
+import public "models/entity.proto";
+import public "models/item.proto";
+
+message Offer {
+
+  string logo = 3327403;
+
+  string date = 3076014;
+
+  Entity to = 3707;
+
+  Entity from = 3151786;
+
+  string title = 110371416;
+
+  string content = 414659706;
+
+  repeated Item items = 100526016;
+
+}

@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo test
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo build
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo deploy

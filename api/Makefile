@@ -12,3 +12,6 @@ generate-proto:
 
 generate-mysql:
 	openapi-generator generate -i openapi.yaml -o gen/mysql -g mysql-schema
+
+generate-docs:
+	openapi-generator generate -i openapi.yaml -o gen/docs/html2 -g html2
