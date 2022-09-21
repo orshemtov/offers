@@ -1,3 +1,7 @@
 # Offers system
 
-A helpful application for building offers for clients.
+[![CI](https://github.com/orshemtov/offers-system/actions/workflows/ci.yml/badge.svg)](https://github.com/orshemtov/offers-system/actions/workflows/ci.yml)
+
+An application for building offers for clients.
+
+[Documentation](https://orshemtov.github.io/offers-system/)
