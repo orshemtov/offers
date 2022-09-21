@@ -1,11 +1,11 @@
-CLIENT_TYPE = typescript-fetch
-SERVER_TYPE = go-gin-server
+generate-client-typescript:
+	openapi-generator generate -i openapi.yaml -o gen/client/ts -g typescript-fetch
 
-generate-client:
-	openapi-generator generate -i openapi.yaml -o gen/client -g $(CLIENT_TYPE)
+generate-client-dart:
+	openapi-generator generate -i openapi.yaml -o gen/client/dart -g dart
 
-generate-server:
-	openapi-generator generate -i openapi.yaml -o gen/server -g $(SERVER_TYPE)
+generate-server-go-gin:
+	openapi-generator generate -i openapi.yaml -o gen/server/go -g go-gin-server
 
 generate-proto:
 	openapi-generator generate -i openapi.yaml -o gen/proto -g protobuf-schema
