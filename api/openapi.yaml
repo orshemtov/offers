@@ -1,0 +1,270 @@
+openapi: 3.0.3
+info:
+  title: Offers System
+  description: Offers System
+  version: 1.0.0
+servers:
+  - url: 'https://localhost:8080/api/v1'
+paths:
+  /offers:
+    post:
+      description: Create a new offer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Offer"
+      responses:
+        201:
+          description: Offer created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Offer"
+    get:
+      description: Get all offers
+      responses:
+        200:
+          description: Offers were fetched successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Offer"
+
+  /offers/{offerId}:
+    get:
+      description: Get an offer
+      parameters:
+        - name: offerId
+          in: path
+          description: The ID of the offer
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Offer retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Offer"
+        404:
+          description: Offer not found
+          content:
+            text/plain:
+              schema:
+                type: string
+    put:
+      description: Update an offer
+      parameters:
+        - name: offerId
+          in: path
+          description: The ID of the offer
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Offer"
+      responses:
+        201:
+          description: Offer has been updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Offer"
+        404:
+          description: Offer not found
+          content:
+            text/plain:
+              schema:
+                type: string
+  /items:
+    post:
+      description: Add a new item to the catalog
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Item"
+      responses:
+        201:
+          description: Item has been added successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Item"
+
+    get:
+      description: Get all items from the catalog
+      responses:
+        200:
+          description: Items have been retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Item"
+
+  /items/{itemId}:
+    get:
+      description: Get an item from the catalog
+      parameters:
+        - name: itemId
+          in: path
+          description: The ID of the item
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Item retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Item"
+        404:
+          description: Item not found
+          content:
+            text/plain:
+              schema:
+                type: string
+
+    put:
+      description: Update an item in the catalog
+      parameters:
+        - name: itemId
+          in: path
+          description: The ID of the item
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Item"
+      responses:
+        201:
+          description: Item has been updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Item"
+        404:
+          description: Item not found
+          content:
+            text/plain:
+              schema:
+                type: string
+    delete:
+      parameters:
+        - name: itemId
+          in: path
+          description: The ID of the item
+          required: true
+          schema:
+            type: string
+      description: Delete an item from the catalog
+      responses:
+        204:
+          description: Item has been updated successfully
+        404:
+          description: Item not found
+          content:
+            text/plain:
+              schema:
+                type: string
+  /images:
+    post:
+      description: Upload images
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/Image"
+      responses:
+        201:
+          description: Images were uploaded successfully
+        500:
+          description: There was an issue with uploading the images
+
+components:
+  schemas:
+    Entity:
+      type: object
+      required:
+        - name
+        - address
+        - phone
+        - email
+      properties:
+        name:
+          type: string
+        address:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+    Offer:
+      type: object
+      required:
+        - logo
+        - date
+        - from
+        - to
+        - title
+        - content
+        - items
+      properties:
+        logo:
+          $ref: "#/components/schemas/Image"
+        date:
+          description: The date of the offer
+          type: string
+        to:
+          description: The recipient of the offer
+          type: object
+          $ref: "#/components/schemas/Entity"
+        from:
+          description: The side who's making the offer
+          type: object
+          $ref: "#/components/schemas/Entity"
+        title:
+          type: string
+        content:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Item"
+    Item:
+      type: object
+      required:
+        - name
+        - description
+        - price
+        - image
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        image:
+          $ref: "#/components/schemas/Image"
+    Image:
+      type: string
