@@ -1,6 +1,9 @@
-package models
+package model
+
+import "gorm.io/gorm"
 
 type Offer struct {
+	gorm.Model
 	Logo    string `json:"logo"`
 	Date    string `json:"date"`
 	To      Entity `json:"to"`
