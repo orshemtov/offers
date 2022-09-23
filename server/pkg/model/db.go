@@ -18,8 +18,7 @@ const (
 )
 
 var (
-	// Database connection string
-	DSN = fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", User, Password, Host, Port, Database)
+	DSN = fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", User, Password, Host, Port, Database) // Database connection string
 )
 
 func InitDB() {
