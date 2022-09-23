@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	api "github.com/orshemtov/offers-system/server/pkg/api"
+	"github.com/orshemtov/offers-system/server/pkg/api"
 	"github.com/orshemtov/offers-system/server/pkg/model"
 )
 

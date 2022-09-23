@@ -17,18 +17,15 @@ const (
 	Database = "main"
 )
 
-func InitDB() {
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", User, Password, Host, Port, Database)
+var (
+	// Database connection string
+	DSN = fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", User, Password, Host, Port, Database)
+)
 
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+func InitDB() {
+	db, err := gorm.Open(mysql.Open(DSN), &gorm.Config{})
 	if err != nil {
 		panic("Failed to connect to database")
 	}
-
-	var item Item
-	var offer Offer
-	var entity Client
-	db.AutoMigrate(&item, &offer, &entity)
-
 	DB = db
 }
