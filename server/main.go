@@ -3,12 +3,12 @@ package main
 import (
 	"log"
 
-	"github.com/orshemtov/offers-system/server/pkg/api"
 	"github.com/orshemtov/offers-system/server/pkg/model"
+	"github.com/orshemtov/offers-system/server/pkg/router"
 )
 
 func main() {
 	model.InitDB()
-	router := api.NewRouter()
-	log.Fatal(router.Run(":5000"))
+	r := router.NewRouter()
+	log.Fatal(r.Run(":5000"))
 }
