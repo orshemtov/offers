@@ -18,28 +18,27 @@ services:
     restart: always
     ports:
       - "8080:8080"
+  # server:
+  #   build:
+  #     dockerfile: ./server/Dockerfile
+  #     context: server
+  #   container_name: server
+  #   ports:
+  #     - "5000:5000"
+  #   depends_on:
+  #     - mysql
 
-  server:
-    build:
-      dockerfile: ./server/Dockerfile
-      context: server
-    container_name: server
-    ports:
-      - "5000:5000"
-    depends_on:
-      - mysql
-
-  client:
-    build:
-      dockerfile: ./client/Dockerfile
-      context: client
-    container_name: client
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./client/src:/app/src
-    depends_on:
-      - mysql
+  # client:
+  #   build:
+  #     dockerfile: ./client/Dockerfile
+  #     context: client
+  #   container_name: client
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - ./client/src:/app/src
+  #   depends_on:
+  #     - mysql
 
 volumes:
   data:

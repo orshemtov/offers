@@ -1,9 +1,8 @@
-package api
+package model
 
 import (
 	"fmt"
 
-	"github.com/orshemtov/offers-system/server/pkg/model"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -15,15 +14,21 @@ const (
 	Port     = 3306
 	User     = "root"
 	Password = "admin"
-	Database = ""
+	Database = "main"
 )
 
-func init() {
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", User, Password, Host, Port, Database) + "?charset=utf8mb4&parseTime=True&loc=Local"
+func InitDB() {
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", User, Password, Host, Port, Database)
+
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic("Failed to connect to database")
 	}
-	db.AutoMigrate(&model.Item{}, &model.Offer{}, &model.Entity{})
+
+	var item Item
+	var offer Offer
+	var entity Client
+	db.AutoMigrate(&item, &offer, &entity)
+
 	DB = db
 }

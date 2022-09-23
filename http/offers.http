@@ -1,0 +1,83 @@
+POST http://localhost:5000/api/v1/offers HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "date" : "date",
+  "logo" : "logo",
+  "from" : {
+    "address" : "address",
+    "phone" : "phone",
+    "name" : "name",
+    "email" : "email"
+  },
+  "to" : {
+    "address" : "address",
+    "phone" : "phone",
+    "name" : "name",
+    "email" : "email"
+  },
+  "title" : "title",
+  "items" : [ {
+    "image" : "image",
+    "price" : 0.8008281904610115,
+    "name" : "name",
+    "description" : "description"
+  }, {
+    "image" : "image",
+    "price" : 0.8008281904610115,
+    "name" : "name",
+    "description" : "description"
+  } ],
+  "content" : "content"
+}
+
+###
+GET http://localhost:5000/api/v1/offers HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+### 
+GET http://localhost:5000/api/v1/offers/0 HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+###
+PUT http://localhost:5000/api/v1/offers/0 HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "date" : "date",
+  "logo" : "logo",
+  "from" : {
+    "address" : "address",
+    "phone" : "phone",
+    "name" : "name",
+    "email" : "email"
+  },
+  "to" : {
+    "address" : "address",
+    "phone" : "phone",
+    "name" : "name",
+    "email" : "email"
+  },
+  "title" : "title",
+  "items" : [ {
+    "image" : "image",
+    "price" : 0.8008281904610115,
+    "name" : "name",
+    "description" : "description"
+  }, {
+    "image" : "image",
+    "price" : 0.8008281904610115,
+    "name" : "name",
+    "description" : "description"
+  } ],
+  "content" : "content"
+}
+
+### 
+DELETE http://localhost:5000/api/v1/offers/0 HTTP/1.1
+Accept: application/json
+Content-Type: application/json

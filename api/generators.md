@@ -1,4 +1,6 @@
-# CLIENT generators
+# Generators
+
+## CLIENT
 
 * ada
 * android
@@ -67,7 +69,7 @@
 * typescript-redux-query
 * typescript-rxjs
 
-# SERVER generators
+## SERVER
 
 * ada-server
 * aspnetcore
@@ -125,7 +127,7 @@
 * scalatra
 * spring
 
-# DOCUMENTATION generators
+## DOCUMENTATION
 
 * asciidoc
 * cwiki
@@ -137,7 +139,7 @@
 * openapi-yaml
 * plantuml (beta)
 
-# SCHEMA generators
+## SCHEMA
 
 * avro-schema (beta)
 * graphql-schema
@@ -146,6 +148,6 @@
 * protobuf-schema (beta)
 * wsdl-schema (beta)
 
-# CONFIG generators
+## CONFIG
 
 * apache2
