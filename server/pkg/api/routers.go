@@ -35,85 +35,75 @@ func NewRouter() *gin.Engine {
 	return router
 }
 
-func Index(c *gin.Context) {
-	c.String(http.StatusOK, "Hello World!")
-}
-
 var routes = Routes{
 	{
-		"Index",
-		http.MethodGet,
-		"/api/v1/",
-		Index,
-	},
-
-	{
-		"ImagesPost",
+		"UploadImage",
 		http.MethodPost,
 		"/api/v1/images",
-		ImagesPost,
+		UploadImage,
 	},
-
 	{
-		"ItemsGet",
+		"GetItems",
 		http.MethodGet,
 		"/api/v1/items",
-		ItemsGet,
+		GetItems,
 	},
 
 	{
-		"ItemsItemIdDelete",
+		"DeleteItem",
 		http.MethodDelete,
 		"/api/v1/items/:itemId",
-		ItemsItemIdDelete,
+		DeleteItem,
 	},
 
 	{
-		"ItemsItemIdGet",
+		"GetItem",
 		http.MethodGet,
 		"/api/v1/items/:itemId",
-		ItemsItemIdGet,
+		GetItem,
 	},
 
 	{
-		"ItemsItemIdPut",
+		"UpdateItem",
 		http.MethodPut,
 		"/api/v1/items/:itemId",
-		ItemsItemIdPut,
+		UpdateItem,
 	},
-
 	{
-		"ItemsPost",
+		"CreateItem",
 		http.MethodPost,
 		"/api/v1/items",
-		ItemsPost,
+		CreateItem,
 	},
-
 	{
-		"OffersGet",
+		"GetOffers",
 		http.MethodGet,
 		"/api/v1/offers",
-		OffersGet,
+		GetOffers,
 	},
-
 	{
-		"OffersOfferIdGet",
+		"GetOffer",
 		http.MethodGet,
 		"/api/v1/offers/:offerId",
-		OffersOfferIdGet,
+		GetOffer,
 	},
-
 	{
-		"OffersOfferIdPut",
+		"UpdateOffer",
 		http.MethodPut,
 		"/api/v1/offers/:offerId",
-		OffersOfferIdPut,
+		UpdateOffer,
 	},
 
 	{
-		"OffersPost",
+		"CreateOffer",
 		http.MethodPost,
 		"/api/v1/offers",
-		OffersPost,
+		CreateOffer,
+	},
+	{
+		"DeleteOffer",
+		http.MethodDelete,
+		"/api/v1/offers/:offerId",
+		DeleteOffer,
 	},
 }
