@@ -3,15 +3,12 @@ package main
 import (
 	"log"
 
-	"github.com/orshemtov/offers-system/server/pkg/model"
-	"github.com/orshemtov/offers-system/server/pkg/router"
+	"github.com/orshemtov/offers-system/server/pkg/routes"
 )
 
-func init() {
-	model.Setup()
-}
+const addr = ":5000"
 
 func main() {
-	r := router.NewRouter()
-	log.Fatal(r.Run(":5000"))
+	r := routes.NewRouter()
+	log.Fatal(r.Run(addr))
 }

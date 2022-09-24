@@ -1,10 +1,9 @@
-package router
+package routes
 
 import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/orshemtov/offers-system/server/pkg/service"
 )
 
 type Route struct {
@@ -40,77 +39,77 @@ var routes = Routes{
 	{
 		http.MethodGet,
 		"/clients/:clientId",
-		service.GetClient,
+		GetClient,
 	},
 	{
 		http.MethodGet,
 		"/clients",
-		service.GetAllClients,
+		GetAllClients,
 	},
 	{
 		http.MethodPost,
 		"/clients",
-		service.CreateClient,
+		CreateClient,
 	},
 	{
 		http.MethodPut,
 		"/clients",
-		service.UpdateClient,
+		UpdateClient,
 	},
 	{
 		http.MethodDelete,
 		"/clients/:clientId",
-		service.DeleteClient,
+		DeleteClient,
 	},
 	{
 		http.MethodGet,
 		"/items/:itemId",
-		service.GetItem,
+		GetItem,
 	},
 	{
 		http.MethodGet,
 		"/items",
-		service.GetAllItems,
+		GetAllItems,
 	},
 	{
 		http.MethodPost,
 		"/items",
-		service.CreateItem,
+		CreateItem,
 	},
 	{
 		http.MethodPut,
 		"/items",
-		service.UpdateItem,
+		UpdateItem,
 	},
 
 	{
 		http.MethodDelete,
 		"/items/:itemId",
-		service.DeleteItem,
+		DeleteItem,
 	},
 	{
 		http.MethodGet,
 		"/offers/:offerId",
-		service.GetOffer,
+		GetOffer,
 	},
 	{
 		http.MethodGet,
 		"/offers",
-		service.GetAllOffers,
+		GetAllOffers,
 	},
 	{
 		http.MethodPost,
 		"/offers",
-		service.CreateOffer,
+		CreateOffer,
 	},
 	{
 		http.MethodPut,
 		"/offers",
-		service.UpdateOffer,
+		UpdateOffer,
 	},
 	{
 		http.MethodDelete,
 		"/api/v1/offers/:offerId",
-		service.DeleteOffer,
+		DeleteOffer,
 	},
 }
