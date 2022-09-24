@@ -6,11 +6,11 @@ import (
 
 type Offer struct {
 	gorm.Model
-	Date    string `json:"date"`
-	To      int    `json:"to" gorm:"foreignKey:ClientID"`
-	Title   string `json:"title"`
-	Content string `json:"content"`
-	Items   []Item `json:"items" gorm:"many2many:offer_item"`
+	Date    string    `json:"date"`
+	To      int       `json:"to" gorm:"foreignKey:ClientID"`
+	Title   string    `json:"title"`
+	Content string    `json:"content"`
+	Items   []Product `json:"items" gorm:"many2many:offer_item"`
 }
 
 func GetOffer(id int) (*Offer, error) {

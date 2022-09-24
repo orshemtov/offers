@@ -8,48 +8,48 @@ import (
 	"github.com/orshemtov/offers-system/server/pkg/model"
 )
 
-func GetItem(c *gin.Context) {
+func GetProduct(c *gin.Context) {
 	id := strutil.MustInt(c.Param("itemId"))
-	item, err := model.GetItem(id)
+	item, err := model.GetProduct(id)
 	if err != nil {
 		panic(err)
 	}
 	c.JSON(http.StatusOK, item)
 }
 
-func GetAllItems(c *gin.Context) {
-	items, err := model.GetAllItems()
+func GetAllProducts(c *gin.Context) {
+	items, err := model.GetAllProducts()
 	if err != nil {
 		panic(err)
 	}
 	c.JSON(http.StatusOK, items)
 }
 
-func CreateItem(c *gin.Context) {
+func CreateProduct(c *gin.Context) {
 	defer c.Request.Body.Close()
-	var item model.Item
+	var item model.Product
 	c.BindJSON(&item)
-	createdItem, err := model.CreateItem(item)
+	createdProduct, err := model.CreateProduct(item)
 	if err != nil {
 		panic(err)
 	}
-	c.JSON(http.StatusCreated, createdItem)
+	c.JSON(http.StatusCreated, createdProduct)
 }
 
-func UpdateItem(c *gin.Context) {
+func UpdateProduct(c *gin.Context) {
 	defer c.Request.Body.Close()
-	var item model.Item
+	var item model.Product
 	c.BindJSON(&item)
-	updatedItem, err := model.UpdateItem(item)
+	updatedProduct, err := model.UpdateProduct(item)
 	if err != nil {
 		panic(err)
 	}
-	c.JSON(http.StatusCreated, updatedItem)
+	c.JSON(http.StatusCreated, updatedProduct)
 }
 
-func DeleteItem(c *gin.Context) {
+func DeleteProduct(c *gin.Context) {
 	id := strutil.MustInt(c.Param("itemId"))
-	err := model.DeleteItem(id)
+	err := model.DeleteProduct(id)
 	if err != nil {
 		panic(err)
 	}

@@ -63,29 +63,29 @@ var routes = Routes{
 	},
 	{
 		http.MethodGet,
-		"/items/:itemId",
-		GetItem,
+		"/products/:itemId",
+		GetProduct,
 	},
 	{
 		http.MethodGet,
-		"/items",
-		GetAllItems,
+		"/products",
+		GetAllProducts,
 	},
 	{
 		http.MethodPost,
-		"/items",
-		CreateItem,
+		"/products",
+		CreateProduct,
 	},
 	{
 		http.MethodPut,
-		"/items",
-		UpdateItem,
+		"/products",
+		UpdateProduct,
 	},
 
 	{
 		http.MethodDelete,
-		"/items/:itemId",
-		DeleteItem,
+		"/products/:itemId",
+		DeleteProduct,
 	},
 	{
 		http.MethodGet,

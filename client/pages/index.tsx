@@ -1,20 +1,28 @@
 import type { NextPage } from "next"
+import { Box, Container } from "@mui/material"
 import { Topbar } from "../components/Topbar/Topbar"
-import { Offer } from "../components/Offer/Offer"
+import { Footer } from "../components/Footer/Footer"
+import { Sidebar } from "../components/Sidebar/Sidebar"
+import { Rightbar } from "../components/Rightbar/Rightbar"
+import { Content } from "../components/Content/Content"
 
 const Home: NextPage = () => {
-  const item = {
-    name: "Camera",
-    description: "A security camera",
-    price: 200.00,
-    image: "https://www.satsigma.co.il/wp-content/uploads/2021/02/HIKVISION-DS-2CD1153G0-I-2.8mm-C.png"
-  }
-
   return (
-    <div>
+    <Container maxWidth={"xl"}>
       <Topbar/>
-      <Offer/>
-    </div>
+      <Box display={"flex"}>
+        <Box flex={2}>
+          <Sidebar/>
+        </Box>
+        <Box flex={8}>
+          <Content/>
+        </Box>
+        <Box flex={2}>
+          <Rightbar/>
+        </Box>
+      </Box>
+      <Footer/>
+    </Container>
   )
 }
 

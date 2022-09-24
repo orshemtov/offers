@@ -19,7 +19,7 @@ Content-Type: application/json
 {
   "date": "2022-09-24",
   "to": 1,
-  "title": "Offer",
+  "title": "OfferForm",
   "content": "Hello there, I would like to offer you...\n",
   "items": [
     {

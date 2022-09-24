@@ -12,7 +12,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestCreateItem(t *testing.T) {
+func TestCreateProduct(t *testing.T) {
 	router := routes.NewRouter()
 	w := httptest.NewRecorder()
 
@@ -28,7 +28,7 @@ func TestCreateItem(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	req, _ := http.NewRequest("POST", "/api/v1/items", bytes.NewBuffer(jsonBody))
+	req, _ := http.NewRequest("POST", "/api/v1/products", bytes.NewBuffer(jsonBody))
 	router.ServeHTTP(w, req)
 
 	assert.Equal(t, 201, w.Code)
@@ -51,12 +51,12 @@ func TestCreateItem(t *testing.T) {
 	assert.Equal(t, body["image"], respBody["image"])
 }
 
-func TestDeleteItem(t *testing.T) {
+func TestDeleteProduct(t *testing.T) {
 	router := routes.NewRouter()
 	w := httptest.NewRecorder()
 
 	id := "0"
-	req, _ := http.NewRequest("DELETE", "/api/v1/items/"+id, nil)
+	req, _ := http.NewRequest("DELETE", "/api/v1/products/"+id, nil)
 	router.ServeHTTP(w, req)
 
 	assert.Equal(t, 200, w.Code)
@@ -65,22 +65,22 @@ func TestDeleteItem(t *testing.T) {
 	assert.Equal(t, want, w.Body.String())
 }
 
-func TestGetAllItems(t *testing.T) {
+func TestGetAllProducts(t *testing.T) {
 	router := routes.NewRouter()
 	w := httptest.NewRecorder()
 
-	req, _ := http.NewRequest("GET", "/api/v1/items", nil)
+	req, _ := http.NewRequest("GET", "/api/v1/products", nil)
 	router.ServeHTTP(w, req)
 
 	assert.Equal(t, 204, w.Code)
 }
 
-func TestGetItem(t *testing.T) {
+func TestGetProduct(t *testing.T) {
 	router := routes.NewRouter()
 	w := httptest.NewRecorder()
 
 	id := "0"
-	req, _ := http.NewRequest("GET", "/api/v1/items/"+id, nil)
+	req, _ := http.NewRequest("GET", "/api/v1/products/"+id, nil)
 	router.ServeHTTP(w, req)
 
 	assert.Equal(t, 200, w.Code)
@@ -89,7 +89,7 @@ func TestGetItem(t *testing.T) {
 	assert.Equal(t, want, w.Body.String())
 }
 
-func TestUpdateItem(t *testing.T) {
+func TestUpdateProduct(t *testing.T) {
 	router := routes.NewRouter()
 	w := httptest.NewRecorder()
 
@@ -103,7 +103,7 @@ func TestUpdateItem(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	req, _ := http.NewRequest("PUT", "/api/v1/items", bytes.NewBuffer(jsonBody))
+	req, _ := http.NewRequest("PUT", "/api/v1/products", bytes.NewBuffer(jsonBody))
 	router.ServeHTTP(w, req)
 
 	assert.Equal(t, 201, w.Code)

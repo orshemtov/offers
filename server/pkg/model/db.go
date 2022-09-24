@@ -37,7 +37,7 @@ func init() {
 		panic("Failed to connect to database")
 	}
 
-	err = db.AutoMigrate(&Client{}, &Item{}, &Offer{})
+	err = db.AutoMigrate(&Client{}, &Product{}, &Offer{})
 	if err != nil {
 		panic("Could not complete auto migrations")
 	}

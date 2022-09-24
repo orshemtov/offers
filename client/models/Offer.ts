@@ -1,4 +1,4 @@
-import Item from "./Item"
+import Product from "./Product"
 import Client from "./Client"
 
 export default interface Offer {
@@ -6,5 +6,5 @@ export default interface Offer {
   to: Client
   title: string
   content: string
-  items: Item[]
+  items: Product[]
 }

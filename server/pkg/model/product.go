@@ -2,7 +2,7 @@ package model
 
 import "gorm.io/gorm"
 
-type Item struct {
+type Product struct {
 	gorm.Model
 	Name        string  `json:"name"`
 	Description string  `json:"description"`
@@ -10,8 +10,8 @@ type Item struct {
 	Image       string  `json:"image"`
 }
 
-func GetItem(id int) (*Item, error) {
-	var item Item
+func GetProduct(id int) (*Product, error) {
+	var item Product
 	result := db.Find(&item, id)
 	if result.Error != nil {
 		return nil, result.Error
@@ -19,8 +19,8 @@ func GetItem(id int) (*Item, error) {
 	return &item, nil
 }
 
-func GetAllItems() (*[]Item, error) {
-	var items []Item
+func GetAllProducts() (*[]Product, error) {
+	var items []Product
 	result := db.Find(&items)
 	if result.Error != nil {
 		return nil, result.Error
@@ -28,7 +28,7 @@ func GetAllItems() (*[]Item, error) {
 	return &items, nil
 }
 
-func CreateItem(item Item) (*Item, error) {
+func CreateProduct(item Product) (*Product, error) {
 	result := db.Create(&item)
 	if result.Error != nil {
 		return nil, result.Error
@@ -36,7 +36,7 @@ func CreateItem(item Item) (*Item, error) {
 	return &item, nil
 }
 
-func UpdateItem(item Item) (*Item, error) {
+func UpdateProduct(item Product) (*Product, error) {
 	result := db.Save(item)
 	if result.Error != nil {
 		return nil, result.Error
@@ -44,8 +44,8 @@ func UpdateItem(item Item) (*Item, error) {
 	return &item, nil
 }
 
-func DeleteItem(id int) error {
-	result := db.Delete(&Item{}, id)
+func DeleteProduct(id int) error {
+	result := db.Delete(&Product{}, id)
 	if result.Error != nil {
 		return result.Error
 	}
