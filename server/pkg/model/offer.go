@@ -7,34 +7,50 @@ import (
 type Offer struct {
 	gorm.Model
 	Date    string `json:"date"`
-	To      Client `json:"to"`
+	To      int    `json:"to" gorm:"foreignKey:ClientID"`
 	Title   string `json:"title"`
 	Content string `json:"content"`
-	Items   []Item `json:"items"`
+	Items   []Item `json:"items" gorm:"many2many:offer_item"`
 }
 
-func GetOffer(id int) Offer {
+func GetOffer(id int) (*Offer, error) {
 	var offer Offer
-	db.Find(&offer, id)
-	return offer
+	result := db.Find(&offer, id)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return &offer, nil
 }
 
-func GetAllOffers() []Offer {
+func GetAllOffers() (*[]Offer, error) {
 	var offers []Offer
-	db.Find(&offers)
-	return offers
+	result := db.Find(&offers)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return &offers, nil
 }
 
-func CreateOffer(offer Offer) Offer {
-	db.Create(&offer)
-	return offer
+func CreateOffer(offer Offer) (*Offer, error) {
+	result := db.Create(&offer)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return &offer, nil
 }
 
-func UpdateOffer(offer Offer) Offer {
-	db.Save(offer)
-	return offer
+func UpdateOffer(offer Offer) (*Offer, error) {
+	result := db.Save(offer)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return &offer, nil
 }
 
-func DeleteOffer(id int) {
-	db.Delete(&Offer{}, id)
+func DeleteOffer(id int) error {
+	result := db.Delete(&Offer{}, id)
+	if result.Error != nil {
+		return result.Error
+	}
+	return nil
 }

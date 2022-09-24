@@ -8,35 +8,35 @@ import (
 
 var clientService *service.ClientService
 
-var entityRoutes = Routes{
+var clientRoutes = Routes{
 	{
-		"GetEntity",
+		"GetClient",
 		http.MethodGet,
-		"/api/v1/entities/:entityId",
+		"/api/v1/clients/:clientId",
 		clientService.Get,
 	},
 	{
-		"GetAllEntities",
+		"GetAllClients",
 		http.MethodGet,
-		"/api/v1/entities",
+		"/api/v1/clients",
 		clientService.GetAll,
 	},
 	{
-		"CreateEntity",
+		"CreateClient",
 		http.MethodPost,
-		"/api/v1/entities",
+		"/api/v1/clients",
 		clientService.Create,
 	},
 	{
-		"UpdateEntity",
+		"UpdateClient",
 		http.MethodPut,
-		"/api/v1/entities/:entityId",
+		"/api/v1/clients",
 		clientService.Update,
 	},
 	{
-		"DeleteEntity",
+		"DeleteClient",
 		http.MethodDelete,
-		"/api/v1/entities/:entityId",
+		"/api/v1/clients/:clientId",
 		clientService.Delete,
 	},
 }

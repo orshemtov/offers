@@ -1,30 +1,4 @@
 ######################################################
-# Get one by ID
-GET http://localhost:5000/api/v1/items/0
-Accept: application/json
-
-###
-GET http://localhost:5000/api/v1/offers/0
-Accept: application/json
-
-###
-GET http://localhost:5000/api/v1/entities/0
-Accept: application/json
-
-######################################################
-# Get All
-GET http://localhost:5000/api/v1/items
-Accept: application/json
-
-###
-GET http://localhost:5000/api/v1/offers
-Accept: application/json
-
-###
-GET http://localhost:5000/api/v1/entities
-Accept: application/json
-
-######################################################
 # Create
 POST http://localhost:5000/api/v1/items
 Accept: application/json
@@ -42,19 +16,53 @@ POST http://localhost:5000/api/v1/offers
 Accept: application/json
 Content-Type: application/json
 
-{}
+{
+  "date": "2022-09-24",
+  "to": 1,
+  "title": "Offer",
+  "content": "Hello there, I would like to offer you...\n",
+  "items": [
+    2
+  ]
+}
 
 ###
-POST http://localhost:5000/api/v1/entities
+POST http://localhost:5000/api/v1/clients
 Accept: application/json
 Content-Type: application/json
 
 {
-  "name": "Or Shemtov",
+  "name": "BarCom Systems",
   "address": "HaCarmel 39, Bet Dagan, 50200, Israel",
-  "phone": "0543258979",
-  "email": "me@orshemtov.com"
+  "phone": "050-5758991",
+  "email": "yakov@barcom.com"
 }
+
+######################################################
+# Get one by ID
+GET http://localhost:5000/api/v1/items/0
+Accept: application/json
+
+###
+GET http://localhost:5000/api/v1/offers/0
+Accept: application/json
+
+###
+GET http://localhost:5000/api/v1/clients/0
+Accept: application/json
+
+######################################################
+# Get All
+GET http://localhost:5000/api/v1/items
+Accept: application/json
+
+###
+GET http://localhost:5000/api/v1/offers
+Accept: application/json
+
+###
+GET http://localhost:5000/api/v1/clients
+Accept: application/json
 
 ######################################################
 # Update
@@ -70,7 +78,7 @@ Accept: application/json
 {}
 
 ###
-PUT http://localhost:5000/api/v1/entities
+PUT http://localhost:5000/api/v1/clients
 Accept: application/json
 
 {}
@@ -85,5 +93,5 @@ DELETE http://localhost:5000/api/v1/offers/0
 Accept: application/json
 
 ###
-DELETE http://localhost:5000/api/v1/entities/0
+DELETE http://localhost:5000/api/v1/clients/0
 Accept: application/json

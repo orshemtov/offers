@@ -30,7 +30,7 @@ var offerRoutes = Routes{
 	{
 		"UpdateOffer",
 		http.MethodPut,
-		"/api/v1/offers/:offerId",
+		"/api/v1/offers",
 		offerService.Update,
 	},
 	{

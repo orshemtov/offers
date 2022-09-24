@@ -10,28 +10,44 @@ type Client struct {
 	Email   string `json:"email"`
 }
 
-func GetEntity(id int) Client {
-	var entity Client
-	db.Find(&entity, id)
-	return entity
+func GetClient(id int) (*Client, error) {
+	var client Client
+	result := db.Find(&client, id)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return &client, nil
 }
 
-func GetAllEntities() []Client {
-	var entities []Client
-	db.Find(&entities)
-	return entities
+func GetAllClients() (*[]Client, error) {
+	var clients []Client
+	result := db.Find(&clients)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return &clients, nil
 }
 
-func CreateClient(entity Client) Client {
-	db.Create(&entity)
-	return entity
+func CreateClient(client Client) (*Client, error) {
+	result := db.Create(&client)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return &client, nil
 }
 
-func UpdateEntity(entity Client) Client {
-	db.Save(entity)
-	return entity
+func UpdateClient(client Client) (*Client, error) {
+	result := db.Save(client)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return &client, nil
 }
 
-func DeleteEntity(id int) {
-	db.Delete(&Client{}, id)
+func DeleteClient(id int) error {
+	result := db.Delete(&Client{}, id)
+	if result.Error != nil {
+		return result.Error
+	}
+	return nil
 }

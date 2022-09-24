@@ -30,7 +30,7 @@ var itemRoutes = Routes{
 	{
 		"UpdateItem",
 		http.MethodPut,
-		"/api/v1/items/:itemId",
+		"/api/v1/items",
 		itemService.Update,
 	},
 

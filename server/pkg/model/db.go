@@ -3,6 +3,7 @@ package model
 import (
 	"fmt"
 
+	"github.com/bigkevmcd/go-configparser"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -10,21 +11,34 @@ import (
 var db *gorm.DB
 
 const (
-	Host     = "127.0.0.1"
-	Port     = 3306
-	User     = "root"
-	Password = "admin"
-	Database = "main"
-)
-
-var (
-	DSN = fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", User, Password, Host, Port, Database) // Database connection string
+	configPath    = "conf/config.ini"
+	configSection = "db"
 )
 
 func Setup() {
-	var err error
+	parser, err := configparser.NewConfigParserFromFile(configPath)
+	if err != nil {
+		panic("Could not parse config")
+	}
 
-	db, err = gorm.Open(mysql.Open(DSN), &gorm.Config{})
+	cfg, err := parser.Items(configSection)
+	if err != nil {
+		panic("Could not parse config section")
+	}
+
+	db, err = gorm.Open(
+		mysql.Open(
+			fmt.Sprintf(
+				"%s:%s@tcp(%s:%s)/%s",
+				cfg["user"],
+				cfg["password"],
+				cfg["host"],
+				cfg["port"],
+				cfg["database"],
+			),
+		),
+		&gorm.Config{},
+	)
 	if err != nil {
 		panic("Failed to connect to database")
 	}

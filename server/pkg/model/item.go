@@ -10,28 +10,44 @@ type Item struct {
 	Image       string  `json:"image"`
 }
 
-func GetItem(id int) Item {
+func GetItem(id int) (*Item, error) {
 	var item Item
-	db.Find(&item, id)
-	return item
+	result := db.Find(&item, id)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return &item, nil
 }
 
-func GetAllItems() []Item {
+func GetAllItems() (*[]Item, error) {
 	var items []Item
-	db.Find(&items)
-	return items
+	result := db.Find(&items)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return &items, nil
 }
 
-func CreateItem(item Item) Item {
-	db.Create(&item)
-	return item
+func CreateItem(item Item) (*Item, error) {
+	result := db.Create(&item)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return &item, nil
 }
 
-func UpdateItem(item Item) Item {
-	db.Save(item)
-	return item
+func UpdateItem(item Item) (*Item, error) {
+	result := db.Save(item)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return &item, nil
 }
 
-func DeleteItem(id int) {
-	db.Delete(&Item{}, id)
+func DeleteItem(id int) error {
+	result := db.Delete(&Item{}, id)
+	if result.Error != nil {
+		return result.Error
+	}
+	return nil
 }

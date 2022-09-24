@@ -10,6 +10,7 @@ require (
 )
 
 require (
+	github.com/bigkevmcd/go-configparser v0.0.0-20220905190504-3f080373a501 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect

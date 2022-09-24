@@ -11,28 +11,49 @@ import (
 type ClientService struct{}
 
 func (s *ClientService) Get(c *gin.Context) {
-	id := strutil.MustInt(c.Param("entityId"))
-	entity := model.GetEntity(id)
-	c.JSON(http.StatusOK, entity)
+	id := strutil.MustInt(c.Param("clientId"))
+	client, err := model.GetClient(id)
+	if err != nil {
+		panic(err)
+	}
+	c.JSON(http.StatusOK, client)
 }
 
 func (s *ClientService) GetAll(c *gin.Context) {
-	entities := model.GetAllEntities()
-	c.JSON(http.StatusOK, entities)
+	clients, err := model.GetAllClients()
+	if err != nil {
+		panic(err)
+	}
+	c.JSON(http.StatusOK, clients)
 }
 
 func (s *ClientService) Create(c *gin.Context) {
-	var entity model.Client
+	var client model.Client
 	defer c.Request.Body.Close()
-	_ = c.BindJSON(&entity)
-	entity = model.CreateClient(entity)
-	c.JSON(http.StatusCreated, entity)
+	c.BindJSON(&client)
+	createdClient, err := model.CreateClient(client)
+	if err != nil {
+		panic(err)
+	}
+	c.JSON(http.StatusCreated, createdClient)
 }
 
 func (s *ClientService) Update(c *gin.Context) {
-	c.JSON(http.StatusOK, &gin.H{})
+	defer c.Request.Body.Close()
+	var client model.Client
+	c.BindJSON(&client)
+	updatedClient, err := model.UpdateClient(client)
+	if err != nil {
+		panic(err)
+	}
+	c.JSON(http.StatusOK, updatedClient)
 }
 
 func (s *ClientService) Delete(c *gin.Context) {
-	c.JSON(http.StatusOK, &gin.H{})
+	id := strutil.MustInt(c.Param("clientId"))
+	err := model.DeleteClient(id)
+	if err != nil {
+		panic(err)
+	}
+	c.Status(http.StatusNoContent)
 }

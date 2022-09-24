@@ -18,7 +18,7 @@ type Routes []Route
 var routes Routes
 
 func Setup() {
-	for _, route := range entityRoutes {
+	for _, route := range clientRoutes {
 		routes = append(routes, route)
 	}
 
