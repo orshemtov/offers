@@ -7,7 +7,7 @@ import (
 	"gorm.io/gorm"
 )
 
-var DB *gorm.DB
+var db *gorm.DB
 
 const (
 	Host     = "127.0.0.1"
@@ -21,10 +21,16 @@ var (
 	DSN = fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", User, Password, Host, Port, Database) // Database connection string
 )
 
-func InitDB() {
-	db, err := gorm.Open(mysql.Open(DSN), &gorm.Config{})
+func Setup() {
+	var err error
+
+	db, err = gorm.Open(mysql.Open(DSN), &gorm.Config{})
 	if err != nil {
 		panic("Failed to connect to database")
 	}
-	DB = db
+
+	err = db.AutoMigrate(&Client{}, &Item{}, &Offer{})
+	if err != nil {
+		panic("Could not complete auto migrations")
+	}
 }

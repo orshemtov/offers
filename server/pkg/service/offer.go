@@ -1,30 +1,38 @@
 package service
 
 import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+	"github.com/gookit/goutil/strutil"
 	"github.com/orshemtov/offers-system/server/pkg/model"
-	"github.com/orshemtov/offers-system/server/pkg/repository"
 )
 
-type OfferService struct {
-	repo repository.OfferRepository
+type OfferService struct{}
+
+func (s *OfferService) Get(c *gin.Context) {
+	id := strutil.MustInt(c.Param("offerId"))
+	offer := model.GetOffer(id)
+	c.JSON(http.StatusOK, offer)
 }
 
-func (s *OfferService) Get(id int) model.Offer {
-	return s.repo.Get(id)
+func (s *OfferService) GetAll(c *gin.Context) {
+	offers := model.GetAllOffers()
+	c.JSON(http.StatusOK, offers)
 }
 
-func (s *OfferService) GetAll() []model.Offer {
-	return s.repo.GetAll()
+func (s *OfferService) Create(c *gin.Context) {
+	defer c.Request.Body.Close()
+	var offer model.Offer
+	_ = c.BindJSON(&offer)
+	offer = model.CreateOffer(offer)
+	c.JSON(http.StatusCreated, offer)
 }
 
-func (s *OfferService) Create(offer model.Offer) model.Offer {
-	return s.repo.Create(offer)
+func (s *OfferService) Update(c *gin.Context) {
+	c.JSON(http.StatusOK, &gin.H{})
 }
 
-func (s *OfferService) Update(id int, offer model.Offer) model.Offer {
-	return s.repo.Update(id, offer)
-}
-
-func (s *OfferService) Delete(id int) {
-	s.repo.Delete(id)
+func (s *OfferService) Delete(c *gin.Context) {
+	c.JSON(http.StatusOK, &gin.H{})
 }

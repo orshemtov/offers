@@ -7,8 +7,12 @@ import (
 	"github.com/orshemtov/offers-system/server/pkg/router"
 )
 
+func init() {
+	model.Setup()
+	router.Setup()
+}
+
 func main() {
-	model.InitDB()
 	r := router.NewRouter()
 	log.Fatal(r.Run(":5000"))
 }

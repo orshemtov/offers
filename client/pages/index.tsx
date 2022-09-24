@@ -1,5 +1,6 @@
 import type { NextPage } from "next"
-import { Item } from "../components/Item/Item"
+import { Topbar } from "../components/Topbar/Topbar"
+import { Offer } from "../components/Offer/Offer"
 
 const Home: NextPage = () => {
   const item = {
@@ -11,7 +12,8 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <Item item={item}/>
+      <Topbar/>
+      <Offer/>
     </div>
   )
 }

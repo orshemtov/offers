@@ -1,16 +1,6 @@
 import * as React from "react"
-import {
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Typography
-} from "@mui/material"
+import { Box, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Typography } from "@mui/material"
 import Item from "../../models/Item"
-import { CurrencyBitcoin } from "@mui/icons-material"
 
 type Props = {
   item: Item,

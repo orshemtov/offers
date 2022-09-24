@@ -17,16 +17,16 @@ type Routes []Route
 
 var routes Routes
 
-func init() {
+func Setup() {
+	for _, route := range entityRoutes {
+		routes = append(routes, route)
+	}
+
 	for _, route := range itemRoutes {
 		routes = append(routes, route)
 	}
 
 	for _, route := range offerRoutes {
-		routes = append(routes, route)
-	}
-
-	for _, route := range entityRoutes {
 		routes = append(routes, route)
 	}
 }
@@ -47,6 +47,5 @@ func NewRouter() *gin.Engine {
 			router.DELETE(route.Pattern, route.HandlerFunc)
 		}
 	}
-
 	return router
 }
