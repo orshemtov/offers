@@ -3,6 +3,7 @@ package test
 import (
 	"bytes"
 	"encoding/json"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -32,8 +33,23 @@ func TestCreateClient(t *testing.T) {
 
 	assert.Equal(t, 201, w.Code)
 
-	want := ""
-	assert.Equal(t, want, w.Body.String())
+	var respBody map[string]any
+
+	b, err := io.ReadAll(w.Body)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(b, &respBody)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	assert.Equal(t, body["name"], respBody["name"])
+	assert.Equal(t, body["address"], respBody["address"])
+	assert.Equal(t, body["phone"], respBody["phone"])
+	assert.Equal(t, body["email"], respBody["email"])
+
 }
 
 func TestDeleteClient(t *testing.T) {

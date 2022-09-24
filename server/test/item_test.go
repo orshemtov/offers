@@ -3,6 +3,7 @@ package test
 import (
 	"bytes"
 	"encoding/json"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -15,7 +16,12 @@ func TestCreateItem(t *testing.T) {
 	router := routes.NewRouter()
 	w := httptest.NewRecorder()
 
-	body := map[string]any{}
+	body := map[string]any{
+		"name":        "Camera",
+		"description": "Security camera that catches thieves",
+		"price":       125.50,
+		"image":       "s3://path/to/image.png",
+	}
 
 	jsonBody, err := json.Marshal(body)
 	if err != nil {
@@ -27,8 +33,22 @@ func TestCreateItem(t *testing.T) {
 
 	assert.Equal(t, 201, w.Code)
 
-	want := ""
-	assert.Equal(t, want, w.Body.String())
+	var respBody map[string]any
+
+	b, err := io.ReadAll(w.Body)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = json.Unmarshal(b, &respBody)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	assert.Equal(t, body["name"], respBody["name"])
+	assert.Equal(t, body["description"], respBody["description"])
+	assert.Equal(t, body["price"], respBody["price"])
+	assert.Equal(t, body["image"], respBody["image"])
 }
 
 func TestDeleteItem(t *testing.T) {
