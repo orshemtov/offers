@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/orshemtov/offers-system/server/pkg/service"
 )
 
 type Route struct {
@@ -48,4 +49,108 @@ func NewRouter() *gin.Engine {
 		}
 	}
 	return router
+}
+
+var clientService *service.ClientService
+var itemService *service.ItemService
+var offerService *service.OfferService
+
+var clientRoutes = Routes{
+	{
+		"GetClient",
+		http.MethodGet,
+		"/api/v1/clients/:clientId",
+		clientService.Get,
+	},
+	{
+		"GetAllClients",
+		http.MethodGet,
+		"/api/v1/clients",
+		clientService.GetAll,
+	},
+	{
+		"CreateClient",
+		http.MethodPost,
+		"/api/v1/clients",
+		clientService.Create,
+	},
+	{
+		"UpdateClient",
+		http.MethodPut,
+		"/api/v1/clients",
+		clientService.Update,
+	},
+	{
+		"DeleteClient",
+		http.MethodDelete,
+		"/api/v1/clients/:clientId",
+		clientService.Delete,
+	},
+}
+
+var itemRoutes = Routes{
+	{
+		"GetItem",
+		http.MethodGet,
+		"/api/v1/items/:itemId",
+		itemService.Get,
+	},
+	{
+		"GetItems",
+		http.MethodGet,
+		"/api/v1/items",
+		itemService.GetAll,
+	},
+	{
+		"CreateItem",
+		http.MethodPost,
+		"/api/v1/items",
+		itemService.Create,
+	},
+	{
+		"UpdateItem",
+		http.MethodPut,
+		"/api/v1/items",
+		itemService.Update,
+	},
+
+	{
+		"DeleteItem",
+		http.MethodDelete,
+		"/api/v1/items/:itemId",
+		itemService.Delete,
+	},
+}
+
+var offerRoutes = Routes{
+	{
+		"GetOffer",
+		http.MethodGet,
+		"/api/v1/offers/:offerId",
+		offerService.Get,
+	},
+	{
+		"GetOffers",
+		http.MethodGet,
+		"/api/v1/offers",
+		offerService.GetAll,
+	},
+	{
+		"CreateOffer",
+		http.MethodPost,
+		"/api/v1/offers",
+		offerService.Create,
+	},
+	{
+		"UpdateOffer",
+		http.MethodPut,
+		"/api/v1/offers",
+		offerService.Update,
+	},
+	{
+		"DeleteOffer",
+		http.MethodDelete,
+		"/api/v1/offers/:offerId",
+		offerService.Delete,
+	},
 }

@@ -22,7 +22,18 @@ Content-Type: application/json
   "title": "Offer",
   "content": "Hello there, I would like to offer you...\n",
   "items": [
-    2
+    {
+      "name": "Camera",
+      "description": "A security camera",
+      "price": 125.50,
+      "image": "s3://path/to/image.jpg"
+    },
+    {
+      "name": "Camera",
+      "description": "A security camera",
+      "price": 125.50,
+      "image": "s3://path/to/image.jpg"
+    }
   ]
 }
 
@@ -49,6 +60,11 @@ Accept: application/json
 
 ###
 GET http://localhost:5000/api/v1/clients/0
+Accept: application/json
+
+###
+# Get item which does not exist
+GET http://localhost:5000/api/v1/items/42
 Accept: application/json
 
 ######################################################

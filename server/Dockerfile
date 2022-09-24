@@ -1,21 +1,14 @@
-FROM golang:1.10 AS build
+FROM golang
 
-WORKDIR /go/src
+# Install Build Essentials
 
-COPY go ./go
-COPY main.go .
+# Copy Files
 
-ENV CGO_ENABLED=0
+# Install Dependencies
 
-RUN go get -d -v ./...
-RUN go build -a -installsuffix cgo -o openapi .
+# Build Executable
 
-FROM scratch AS runtime
+# Set Gin mode to 'release'
 
-ENV GIN_MODE=release
+# Run
 
-COPY --from=build /go/src/openapi ./
-
-EXPOSE 8080/tcp
-
-ENTRYPOINT ["./openapi"]
