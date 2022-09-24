@@ -1,8 +1,11 @@
 import * as React from "react"
+import Product from "../../models/Product"
 
-type Props = {};
+type Props = {
+  products: Product[]
+};
 
-export function ProductCatalog(props: Props) {
+export function ProductCatalog({ products }: Props) {
   return (
     <div>
 

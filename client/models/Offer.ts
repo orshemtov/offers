@@ -6,5 +6,5 @@ export default interface Offer {
   to: Client
   title: string
   content: string
-  items: Product[]
+  products: Product[]
 }
