@@ -8,9 +8,7 @@ import (
 	"github.com/orshemtov/offers-system/server/pkg/model"
 )
 
-type ClientService struct{}
-
-func (s *ClientService) Get(c *gin.Context) {
+func GetClient(c *gin.Context) {
 	id := strutil.MustInt(c.Param("clientId"))
 	client, err := model.GetClient(id)
 	if err != nil {
@@ -19,7 +17,7 @@ func (s *ClientService) Get(c *gin.Context) {
 	c.JSON(http.StatusOK, client)
 }
 
-func (s *ClientService) GetAll(c *gin.Context) {
+func GetAllClients(c *gin.Context) {
 	clients, err := model.GetAllClients()
 	if err != nil {
 		panic(err)
@@ -27,7 +25,7 @@ func (s *ClientService) GetAll(c *gin.Context) {
 	c.JSON(http.StatusOK, clients)
 }
 
-func (s *ClientService) Create(c *gin.Context) {
+func CreateClient(c *gin.Context) {
 	var client model.Client
 	defer c.Request.Body.Close()
 	c.BindJSON(&client)
@@ -38,7 +36,7 @@ func (s *ClientService) Create(c *gin.Context) {
 	c.JSON(http.StatusCreated, createdClient)
 }
 
-func (s *ClientService) Update(c *gin.Context) {
+func UpdateClient(c *gin.Context) {
 	defer c.Request.Body.Close()
 	var client model.Client
 	c.BindJSON(&client)
@@ -49,7 +47,7 @@ func (s *ClientService) Update(c *gin.Context) {
 	c.JSON(http.StatusOK, updatedClient)
 }
 
-func (s *ClientService) Delete(c *gin.Context) {
+func DeleteClient(c *gin.Context) {
 	id := strutil.MustInt(c.Param("clientId"))
 	err := model.DeleteClient(id)
 	if err != nil {

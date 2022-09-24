@@ -8,9 +8,7 @@ import (
 	"github.com/orshemtov/offers-system/server/pkg/model"
 )
 
-type OfferService struct{}
-
-func (s *OfferService) Get(c *gin.Context) {
+func GetOffer(c *gin.Context) {
 	id := strutil.MustInt(c.Param("offerId"))
 	offer, err := model.GetOffer(id)
 	if err != nil {
@@ -19,7 +17,7 @@ func (s *OfferService) Get(c *gin.Context) {
 	c.JSON(http.StatusOK, offer)
 }
 
-func (s *OfferService) GetAll(c *gin.Context) {
+func GetAllOffers(c *gin.Context) {
 	offers, err := model.GetAllOffers()
 	if err != nil {
 		panic(err)
@@ -27,7 +25,7 @@ func (s *OfferService) GetAll(c *gin.Context) {
 	c.JSON(http.StatusOK, offers)
 }
 
-func (s *OfferService) Create(c *gin.Context) {
+func CreateOffer(c *gin.Context) {
 	defer c.Request.Body.Close()
 	var offer model.Offer
 	c.BindJSON(&offer)
@@ -38,7 +36,7 @@ func (s *OfferService) Create(c *gin.Context) {
 	c.JSON(http.StatusCreated, createdOffer)
 }
 
-func (s *OfferService) Update(c *gin.Context) {
+func UpdateOffer(c *gin.Context) {
 	defer c.Request.Body.Close()
 	var offer model.Offer
 	c.BindJSON(&offer)
@@ -49,7 +47,7 @@ func (s *OfferService) Update(c *gin.Context) {
 	c.JSON(http.StatusOK, updatedOffer)
 }
 
-func (s *OfferService) Delete(c *gin.Context) {
+func DeleteOffer(c *gin.Context) {
 	id := strutil.MustInt(c.Param("offerId"))
 	err := model.DeleteOffer(id)
 	if err != nil {

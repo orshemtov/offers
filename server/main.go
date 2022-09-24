@@ -9,7 +9,6 @@ import (
 
 func init() {
 	model.Setup()
-	router.Setup()
 }
 
 func main() {

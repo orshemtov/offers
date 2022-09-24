@@ -8,9 +8,7 @@ import (
 	"github.com/orshemtov/offers-system/server/pkg/model"
 )
 
-type ItemService struct{}
-
-func (s *ItemService) Get(c *gin.Context) {
+func GetItem(c *gin.Context) {
 	id := strutil.MustInt(c.Param("itemId"))
 	item, err := model.GetItem(id)
 	if err != nil {
@@ -19,7 +17,7 @@ func (s *ItemService) Get(c *gin.Context) {
 	c.JSON(http.StatusOK, item)
 }
 
-func (s *ItemService) GetAll(c *gin.Context) {
+func GetAllItems(c *gin.Context) {
 	items, err := model.GetAllItems()
 	if err != nil {
 		panic(err)
@@ -27,7 +25,7 @@ func (s *ItemService) GetAll(c *gin.Context) {
 	c.JSON(http.StatusOK, items)
 }
 
-func (s *ItemService) Create(c *gin.Context) {
+func CreateItem(c *gin.Context) {
 	defer c.Request.Body.Close()
 	var item model.Item
 	c.BindJSON(&item)
@@ -38,7 +36,7 @@ func (s *ItemService) Create(c *gin.Context) {
 	c.JSON(http.StatusCreated, createdItem)
 }
 
-func (s *ItemService) Update(c *gin.Context) {
+func UpdateItem(c *gin.Context) {
 	defer c.Request.Body.Close()
 	var item model.Item
 	c.BindJSON(&item)
@@ -49,7 +47,7 @@ func (s *ItemService) Update(c *gin.Context) {
 	c.JSON(http.StatusCreated, updatedItem)
 }
 
-func (s *ItemService) Delete(c *gin.Context) {
+func DeleteItem(c *gin.Context) {
 	id := strutil.MustInt(c.Param("itemId"))
 	err := model.DeleteItem(id)
 	if err != nil {

@@ -8,7 +8,6 @@ import (
 )
 
 type Route struct {
-	Name        string
 	Method      string
 	Pattern     string
 	HandlerFunc gin.HandlerFunc
@@ -16,141 +15,102 @@ type Route struct {
 
 type Routes []Route
 
-var routes Routes
-
-func Setup() {
-	for _, route := range clientRoutes {
-		routes = append(routes, route)
-	}
-
-	for _, route := range itemRoutes {
-		routes = append(routes, route)
-	}
-
-	for _, route := range offerRoutes {
-		routes = append(routes, route)
-	}
-}
-
 func NewRouter() *gin.Engine {
 	router := gin.Default()
+	v1 := router.Group("/api/v1")
+
 	for _, route := range routes {
 		switch route.Method {
 		case http.MethodGet:
-			router.GET(route.Pattern, route.HandlerFunc)
+			v1.GET(route.Pattern, route.HandlerFunc)
 		case http.MethodPost:
-			router.POST(route.Pattern, route.HandlerFunc)
+			v1.POST(route.Pattern, route.HandlerFunc)
 		case http.MethodPut:
-			router.PUT(route.Pattern, route.HandlerFunc)
+			v1.PUT(route.Pattern, route.HandlerFunc)
 		case http.MethodPatch:
-			router.PATCH(route.Pattern, route.HandlerFunc)
+			v1.PATCH(route.Pattern, route.HandlerFunc)
 		case http.MethodDelete:
-			router.DELETE(route.Pattern, route.HandlerFunc)
+			v1.DELETE(route.Pattern, route.HandlerFunc)
 		}
 	}
 	return router
 }
 
-var clientService *service.ClientService
-var itemService *service.ItemService
-var offerService *service.OfferService
-
-var clientRoutes = Routes{
+var routes = Routes{
 	{
-		"GetClient",
 		http.MethodGet,
-		"/api/v1/clients/:clientId",
-		clientService.Get,
+		"/clients/:clientId",
+		service.GetClient,
 	},
 	{
-		"GetAllClients",
 		http.MethodGet,
-		"/api/v1/clients",
-		clientService.GetAll,
+		"/clients",
+		service.GetAllClients,
 	},
 	{
-		"CreateClient",
 		http.MethodPost,
-		"/api/v1/clients",
-		clientService.Create,
+		"/clients",
+		service.CreateClient,
 	},
 	{
-		"UpdateClient",
 		http.MethodPut,
-		"/api/v1/clients",
-		clientService.Update,
+		"/clients",
+		service.UpdateClient,
 	},
 	{
-		"DeleteClient",
 		http.MethodDelete,
-		"/api/v1/clients/:clientId",
-		clientService.Delete,
+		"/clients/:clientId",
+		service.DeleteClient,
 	},
-}
-
-var itemRoutes = Routes{
 	{
-		"GetItem",
 		http.MethodGet,
-		"/api/v1/items/:itemId",
-		itemService.Get,
+		"/items/:itemId",
+		service.GetItem,
 	},
 	{
-		"GetItems",
 		http.MethodGet,
-		"/api/v1/items",
-		itemService.GetAll,
+		"/items",
+		service.GetAllItems,
 	},
 	{
-		"CreateItem",
 		http.MethodPost,
-		"/api/v1/items",
-		itemService.Create,
+		"/items",
+		service.CreateItem,
 	},
 	{
-		"UpdateItem",
 		http.MethodPut,
-		"/api/v1/items",
-		itemService.Update,
+		"/items",
+		service.UpdateItem,
 	},
 
 	{
-		"DeleteItem",
 		http.MethodDelete,
-		"/api/v1/items/:itemId",
-		itemService.Delete,
+		"/items/:itemId",
+		service.DeleteItem,
 	},
-}
-
-var offerRoutes = Routes{
 	{
-		"GetOffer",
 		http.MethodGet,
-		"/api/v1/offers/:offerId",
-		offerService.Get,
+		"/offers/:offerId",
+		service.GetOffer,
 	},
 	{
-		"GetOffers",
 		http.MethodGet,
-		"/api/v1/offers",
-		offerService.GetAll,
+		"/offers",
+		service.GetAllOffers,
 	},
 	{
-		"CreateOffer",
 		http.MethodPost,
-		"/api/v1/offers",
-		offerService.Create,
+		"/offers",
+		service.CreateOffer,
 	},
 	{
-		"UpdateOffer",
 		http.MethodPut,
-		"/api/v1/offers",
-		offerService.Update,
+		"/offers",
+		service.UpdateOffer,
 	},
 	{
-		"DeleteOffer",
 		http.MethodDelete,
 		"/api/v1/offers/:offerId",
-		offerService.Delete,
+		service.DeleteOffer,
 	},
 }
