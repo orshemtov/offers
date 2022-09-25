@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gookit/goutil/strutil"
-	"github.com/orshemtov/offers-system/server/pkg/model"
+	"github.com/orshemtov/offers/server/pkg/model"
 )
 
 func GetOffer(c *gin.Context) {

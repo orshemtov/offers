@@ -8,7 +8,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/orshemtov/offers-system/server/pkg/routes"
+	"github.com/orshemtov/offers/server/pkg/routes"
 	"github.com/stretchr/testify/assert"
 )
 

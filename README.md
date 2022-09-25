@@ -1,7 +1,18 @@
-# Offers system
+# Offers
 
-[![CI](https://github.com/orshemtov/offers-system/actions/workflows/ci.yml/badge.svg)](https://github.com/orshemtov/offers-system/actions/workflows/ci.yml)
+[![CI](https://github.com/orshemtov/offers/actions/workflows/ci.yml/badge.svg)](https://github.com/orshemtov/offers/actions/workflows/ci.yml)
 
-An application for building offers for clients.
+An application for building offers for clients and exporting those to `docx`, `pdf` documents.
 
-[Documentation](https://orshemtov.github.io/offers-system/)
+## Stack
+
+- Server:
+  - Go
+  - Gin
+  - GORM
+- Database:
+  - MySQL
+- Client:
+  - React
+  - Next.js
+  - Material UI

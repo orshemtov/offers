@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/orshemtov/offers-system/server/pkg/routes"
+	"github.com/orshemtov/offers/server/pkg/routes"
 )
 
 const addr = ":5000"
