@@ -12,7 +12,8 @@ export type Rows = Row[]
 
 export const createData = (): Rows => {
   let items: Rows = []
-  for (let i = 0; i < faker.datatype.number({ min: 1, max: 10 }); i++) {
+  const n = faker.datatype.number({ min: 1, max: 10 })
+  for (let i = 0; i < n; i++) {
     const row: Row = {
       id: i,
       image: faker.image.technics(30, 30, true),
