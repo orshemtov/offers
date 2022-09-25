@@ -5,7 +5,7 @@ type Props = {};
 
 export function Rightbar(props: Props) {
   return (
-    <Box bgcolor={"pink"}>
+    <Box bgcolor={"pink"} height={`${100 - 7}vh`}>
       Rightbar
     </Box>
   )

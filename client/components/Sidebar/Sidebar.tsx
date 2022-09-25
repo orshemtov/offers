@@ -5,7 +5,7 @@ type Props = {};
 
 export function Sidebar(props: Props) {
   return (
-    <Box bgcolor={"lightblue"}>
+    <Box bgcolor={"lightblue"} height={`${100 - 7}vh`}>
       Sidebar
     </Box>
   )

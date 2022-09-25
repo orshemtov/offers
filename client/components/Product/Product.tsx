@@ -8,30 +8,28 @@ type Props = {
 
 export function Product({ product }: Props) {
   return (
-    <Box>
-      <Card>
-        <CardHeader title={product.name}/>
-        <Box display={"flex"}>
-          <Box display={"flex"} flexDirection={"column"} alignItems={"left"} justifyContent={"space-between"}>
-            <CardContent>
-              <Typography variant={"h5"}>
-                {product.description}
-              </Typography>
-            </CardContent>
-            <CardContent>
-              <Button>${product.price}</Button>
-            </CardContent>
-          </Box>
-          <Box display={"flex"}>
-            <CardMedia
-              component={"img"}
-              alt={"item"}
-              height={250}
-              image={product.image}
-            />
-          </Box>
+    <Card sx={{ minWidth: 275 }}>
+      <CardHeader title={product.name}/>
+      <Box display={"flex"}>
+        <Box display={"flex"} flexDirection={"column"} alignItems={"left"} justifyContent={"space-between"}>
+          <CardContent>
+            <Typography variant={"h5"}>
+              {product.description}
+            </Typography>
+          </CardContent>
+          <CardContent>
+            <Button>${product.price}</Button>
+          </CardContent>
         </Box>
-      </Card>
-    </Box>
+        <Box display={"flex"}>
+          <CardMedia
+            component={"img"}
+            alt={"item"}
+            height={250}
+            image={product.image}
+          />
+        </Box>
+      </Box>
+    </Card>
   )
 }

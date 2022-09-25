@@ -1,14 +1,11 @@
 import * as React from "react"
-import Offer from "../../models/Offer"
 
 
-type Props = {
-  offer: Offer
-};
+type Props = {};
 
 const logo = "logoUrl"
 
-export const OfferForm = ({ offer }: Props) => {
+export const OfferForm = (props: Props) => {
   return (
     <div>
 
