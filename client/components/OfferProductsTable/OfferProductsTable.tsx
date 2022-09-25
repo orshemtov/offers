@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useEffect, useState } from "react"
 import {
   Avatar,
   Box,
@@ -11,33 +12,8 @@ import {
   TableHead,
   TableRow
 } from "@mui/material"
-import { faker } from "@faker-js/faker"
 import { Add as AddIcon, Delete as DeleteIcon, Edit as EditIcon } from "@mui/icons-material"
-
-interface Row {
-  id: number
-  image: string
-  name: string
-  price: number
-  quantity: number
-}
-
-type Rows = Row[]
-
-const createData = (): Rows => {
-  let items: Rows = []
-  for (let i = 0; i < faker.datatype.number({ min: 1, max: 10 }); i++) {
-    const row: Row = {
-      id: i,
-      image: faker.image.technics(30, 30, true),
-      name: faker.commerce.productName(),
-      price: parseInt(faker.commerce.price(10, 2000)),
-      quantity: faker.datatype.number({ min: 1, max: 10 })
-    }
-    items.push(row)
-  }
-  return items
-}
+import { createData, Row, Rows } from "../../data/fake_products"
 
 type TableProps = {
   rows: Rows,
@@ -85,7 +61,11 @@ function ProductsTable({ rows }: TableProps) {
 type Props = {};
 
 export function OfferProductsTable(props: Props) {
-  const rows: Rows = createData()
+  const [rows, setRows] = useState<Rows>([])
+
+  useEffect(() => {
+    setRows(createData())
+  }, [])
 
   return (
     <div>
