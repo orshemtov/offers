@@ -2,11 +2,9 @@ import * as React from "react";
 import {
   Avatar,
   Box,
-  Button,
   Card,
   CardContent,
   CardHeader,
-  CardMedia,
   Typography,
 } from "@mui/material";
 import Product from "../../models/Product";
@@ -31,7 +29,6 @@ export function ProductCard({ product }: Props) {
         >
           <CardContent>
             <Typography variant={"body1"}>{product.description}</Typography>
-            <Typography fontWeight={700}>${product.price}</Typography>
           </CardContent>
         </Box>
       </Box>

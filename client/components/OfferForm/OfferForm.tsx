@@ -1,5 +1,5 @@
 import { Box, TextField, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createData, Rows } from "../../data/fake_products";
 import ProductsTable from "../ProductsTable/ProductsTable";
 
@@ -9,9 +9,7 @@ const logo =
 type Props = {};
 
 export const OfferForm = (props: Props) => {
-  const today = new Date();
-
-  const [date, setDate] = useState<string>(today.toLocaleDateString());
+  const [date, setDate] = useState<string>("");
 
   // From
   const [nameFrom, setNameFrom] = useState<string>("BarCom");
@@ -30,8 +28,16 @@ export const OfferForm = (props: Props) => {
   // Content
   const [subject, setSubject] = useState<string>("");
   const [content, setContent] = useState<string>("");
-  const [products, setProducts] = useState<Rows>(createData());
-  const [summary, setSummary] = useState<string>("Thank you!");
+  const [products, setProducts] = useState<Rows>([]);
+  const [summary, setSummary] = useState<string>("");
+
+  useEffect(() => {
+    setDate(new Date().toLocaleDateString());
+  }, []);
+
+  useEffect(() => {
+    setProducts(createData());
+  }, []);
 
   const handleNameFromChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNameFrom(e.target.value);
@@ -87,6 +93,9 @@ export const OfferForm = (props: Props) => {
       >
         <img src={logo} alt={"logo"} width={150} />
       </Box>
+      <Typography fontWeight={700} paddingBottom={4}>
+        {date}
+      </Typography>
       <Box
         display={"flex"}
         alignItems={"center"}
@@ -98,15 +107,6 @@ export const OfferForm = (props: Props) => {
           alignItems={"left"}
           justifyContent={"center"}
         >
-          <Box
-            display={"flex"}
-            alignItems={"center"}
-            justifyContent={"flex-start"}
-          >
-            <Typography fontWeight={700} paddingBottom={4}>
-              {date}
-            </Typography>
-          </Box>
           <Typography fontWeight={700} sx={{ paddingBottom: 2 }}>
             From
           </Typography>

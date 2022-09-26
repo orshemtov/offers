@@ -9,6 +9,7 @@ import {
   TableBody,
   Avatar,
 } from "@mui/material";
+import { useEffect, useState } from "react";
 import { Rows, Row } from "../../data/fake_products";
 import Dialog from "../Dialog/Dialog";
 
@@ -53,14 +54,14 @@ export default function ProductsTable({ rows }: Props) {
               </TableCell>
             </TableRow>
           ))}
+          <TableRow>
+            <TableCell align="right"></TableCell>
+            <TableCell align="right"></TableCell>
+            <TableCell align="right"></TableCell>
+            <TableCell align="right"></TableCell>
+            <TableCell align="right">{calculateTotal(rows)}</TableCell>
+          </TableRow>
         </TableBody>
-        <TableRow>
-          <TableCell align="right"></TableCell>
-          <TableCell align="right"></TableCell>
-          <TableCell align="right"></TableCell>
-          <TableCell align="right"></TableCell>
-          <TableCell align="right">{calculateTotal(rows)}</TableCell>
-        </TableRow>
       </Table>
     </TableContainer>
   );

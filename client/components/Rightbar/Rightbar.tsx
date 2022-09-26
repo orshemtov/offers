@@ -14,7 +14,13 @@ type Props = {};
 export function Rightbar(props: Props) {
   const defaultCategories = ["Cameras", "DVRs", "Switches", "Routers"];
   const [categories, setCategories] = useState<string[]>(defaultCategories);
-  const p = { name: "Item 1", description: "Desc", price: 100, image: "s3://" };
+  const p = {
+    name: "Item 1",
+    description: "Desc",
+    price: 100,
+    image:
+      "https://images.thdstatic.com/productImages/220c5202-95f9-4bc4-80ae-875c28f99fc0/svn/white-google-smart-security-cameras-ga01317-us-64_600.jpg",
+  };
 
   return (
     <Box>
