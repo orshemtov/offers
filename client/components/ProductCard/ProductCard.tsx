@@ -1,13 +1,8 @@
 import * as React from "react";
-import {
-  Avatar,
-  Box,
-  Card,
-  CardContent,
-  CardHeader,
-  Typography,
-} from "@mui/material";
+import { Avatar, Box, Card, CardContent, IconButton } from "@mui/material";
 import Product from "../../models/Product";
+import { CardActions, CardHeader, Typography } from "@mui/material";
+import { Add } from "@mui/icons-material";
 
 type Props = {
   product: Product;
@@ -32,6 +27,11 @@ export function ProductCard({ product }: Props) {
           </CardContent>
         </Box>
       </Box>
+      <CardActions>
+        <IconButton>
+          <Add />
+        </IconButton>
+      </CardActions>
     </Card>
   );
 }

@@ -1,22 +1,11 @@
-import { Sheet } from "@mui/joy";
+import { Delete } from "@mui/icons-material";
+import { Button, Sheet } from "@mui/joy";
 import { IconButton, Modal, Typography } from "@mui/material";
 import { useState } from "react";
 
-type Props = {
-  icon: any;
-  color:
-    | "default"
-    | "inherit"
-    | "primary"
-    | "secondary"
-    | "error"
-    | "info"
-    | "success"
-    | "warning"
-    | undefined;
-};
+type Props = {};
 
-const Dialog = ({ icon, color }: Props) => {
+const DeleteDialog = (props: Props) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const handleClick = () => {
@@ -24,8 +13,8 @@ const Dialog = ({ icon, color }: Props) => {
   };
 
   return (
-    <IconButton color={color} onClick={handleClick}>
-      {icon}
+    <IconButton color={"error"} onClick={handleClick}>
+      <Delete />
       <Modal
         sx={{
           display: "flex",
@@ -47,12 +36,13 @@ const Dialog = ({ icon, color }: Props) => {
             p: 3,
           }}
         >
-          {/* TODO: Dynamic Form Data */}
-          <Typography>Hello</Typography>
+          <Typography>Are you sure?</Typography>
+          <Button>Yes</Button>
+          <Button>Cancel</Button>
         </Sheet>
       </Modal>
     </IconButton>
   );
 };
 
-export default Dialog;
+export default DeleteDialog;

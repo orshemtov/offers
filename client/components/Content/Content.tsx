@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Box } from "@mui/material";
-import { OfferForm } from "../OfferForm/OfferForm";
+import OfferForm from "../OfferForm/OfferForm";
 
 type Props = {};
 

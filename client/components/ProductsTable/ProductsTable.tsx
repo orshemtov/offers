@@ -1,17 +1,17 @@
 import { Delete, Edit } from "@mui/icons-material";
 import {
-  TableContainer,
+  Avatar,
   Paper,
   Table,
+  TableBody,
+  TableCell,
+  TableContainer,
   TableHead,
   TableRow,
-  TableCell,
-  TableBody,
-  Avatar,
 } from "@mui/material";
-import { useEffect, useState } from "react";
-import { Rows, Row } from "../../data/fake_products";
-import Dialog from "../Dialog/Dialog";
+import { Row, Rows } from "../../data/fake_products";
+import DeleteDialog from "../Dialog/DeleteDialog";
+import EditDialog from "../Dialog/EditDialog";
 
 type Props = {
   rows: Rows;
@@ -49,8 +49,8 @@ export default function ProductsTable({ rows }: Props) {
               <TableCell align="right">{row.quantity}</TableCell>
               <TableCell align="right">{row.price * row.quantity}</TableCell>
               <TableCell align="right">
-                <Dialog icon={<Delete />} color={"error"} />
-                <Dialog icon={<Edit />} color={"primary"} />
+                <DeleteDialog />
+                <EditDialog />
               </TableCell>
             </TableRow>
           ))}

@@ -1,4 +1,14 @@
-import { Box, TextField, Typography } from "@mui/material";
+import { Print, Save } from "@mui/icons-material";
+import { CardContent, IconButton } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  TextField,
+  Typography,
+} from "@mui/material";
+import { GridToolbarExport } from "@mui/x-data-grid";
 import React, { useEffect, useState } from "react";
 import { createData, Rows } from "../../data/fake_products";
 import ProductsTable from "../ProductsTable/ProductsTable";
@@ -84,149 +94,165 @@ export const OfferForm = (props: Props) => {
   };
 
   return (
-    <div>
-      <Box
-        display={"flex"}
-        alignItems={"center"}
-        justifyContent={"center"}
-        paddingY={6}
-      >
-        <img src={logo} alt={"logo"} width={150} />
-      </Box>
-      <Typography fontWeight={700} paddingBottom={4}>
-        {date}
-      </Typography>
-      <Box
-        display={"flex"}
-        alignItems={"center"}
-        justifyContent={"space-around"}
-      >
+    <Card>
+      <CardContent>
         <Box
           display={"flex"}
           flexDirection={"column"}
-          alignItems={"left"}
+          alignItems={"center"}
           justifyContent={"center"}
+          paddingY={6}
         >
-          <Typography fontWeight={700} sx={{ paddingBottom: 2 }}>
-            From
+          <Box component={"img"} src={logo} alt={"logo"} width={150} />
+          <Typography fontWeight={700} paddingY={4}>
+            {date}
           </Typography>
+        </Box>
+        <Box
+          display={"flex"}
+          alignItems={"center"}
+          justifyContent={"space-around"}
+        >
+          <Box
+            display={"flex"}
+            flexDirection={"column"}
+            alignItems={"left"}
+            justifyContent={"center"}
+          >
+            <Typography fontWeight={700} sx={{ paddingBottom: 2 }}>
+              From
+            </Typography>
+            <TextField
+              variant={"outlined"}
+              label={"Name"}
+              value={nameFrom}
+              onChange={handleNameFromChange}
+              sx={{ paddingBottom: 2, width: 500 }}
+            />
+            <TextField
+              variant={"outlined"}
+              label={"Address"}
+              value={addressFrom}
+              onChange={handleAddressFromChange}
+              sx={{ paddingBottom: 2, width: 500 }}
+            />
+            <TextField
+              variant={"outlined"}
+              label={"Phone"}
+              value={phoneFrom}
+              onChange={handlePhoneFromChange}
+              sx={{ paddingBottom: 2, width: 500 }}
+            />
+            <TextField
+              variant={"outlined"}
+              label={"Email"}
+              value={emailFrom}
+              onChange={handleEmailFromChange}
+              sx={{ paddingBottom: 2, width: 500 }}
+            />
+          </Box>
+          <Box
+            display={"flex"}
+            flexDirection={"column"}
+            alignItems={"left"}
+            justifyContent={"center"}
+          >
+            <Typography fontWeight={700} sx={{ paddingBottom: 2 }}>
+              To
+            </Typography>
+            <TextField
+              variant={"outlined"}
+              label={"Name"}
+              value={name}
+              onChange={handleNameChange}
+              sx={{ paddingBottom: 2 }}
+            />
+            <TextField
+              variant={"outlined"}
+              label={"Address"}
+              value={address}
+              onChange={handleAddressChange}
+              sx={{ paddingBottom: 2 }}
+            />
+            <TextField
+              variant={"outlined"}
+              label={"Phone"}
+              value={phone}
+              onChange={handlePhoneChange}
+              sx={{ paddingBottom: 2 }}
+            />
+            <TextField
+              variant={"outlined"}
+              label={"Email"}
+              value={email}
+              onChange={handleEmailChange}
+              sx={{ paddingBottom: 2 }}
+            />
+          </Box>
+        </Box>
+        <Box
+          display={"flex"}
+          flexDirection={"column"}
+          alignItems={"center"}
+          justifyContent={"center"}
+          paddingTop={4}
+        >
           <TextField
             variant={"outlined"}
-            label={"Name"}
-            value={nameFrom}
-            onChange={handleNameFromChange}
-            sx={{ paddingBottom: 2 }}
+            label={"Subject"}
+            value={subject}
+            onChange={handleSubjectChange}
+            sx={{ width: 500 }}
           />
           <TextField
             variant={"outlined"}
-            label={"Address"}
-            value={addressFrom}
-            onChange={handleAddressFromChange}
-            sx={{ paddingBottom: 2 }}
-          />
-          <TextField
-            variant={"outlined"}
-            label={"Phone"}
-            value={phoneFrom}
-            onChange={handlePhoneFromChange}
-            sx={{ paddingBottom: 2 }}
-          />
-          <TextField
-            variant={"outlined"}
-            label={"Email"}
-            value={emailFrom}
-            onChange={handleEmailFromChange}
-            sx={{ paddingBottom: 2 }}
+            value={content}
+            onChange={handleContentChange}
+            multiline
+            rows={5}
+            fullWidth
+            sx={{ p: 4 }}
           />
         </Box>
         <Box
           display={"flex"}
           flexDirection={"column"}
-          alignItems={"left"}
+          alignItems={"center"}
           justifyContent={"center"}
         >
-          <Typography fontWeight={700} sx={{ paddingBottom: 2 }}>
-            To
-          </Typography>
+          <Box sx={{ p: 4 }}>
+            <ProductsTable rows={products} />
+          </Box>
+        </Box>
+        <Box
+          display={"flex"}
+          alignItems={"center"}
+          justifyContent={"center"}
+          p={6}
+        >
           <TextField
             variant={"outlined"}
-            label={"Name"}
-            value={name}
-            onChange={handleNameChange}
-            sx={{ paddingBottom: 2 }}
-          />
-          <TextField
-            variant={"outlined"}
-            label={"Address"}
-            value={address}
-            onChange={handleAddressChange}
-            sx={{ paddingBottom: 2 }}
-          />
-          <TextField
-            variant={"outlined"}
-            label={"Phone"}
-            value={phone}
-            onChange={handlePhoneChange}
-            sx={{ paddingBottom: 2 }}
-          />
-          <TextField
-            variant={"outlined"}
-            label={"Email"}
-            value={email}
-            onChange={handleEmailChange}
-            sx={{ paddingBottom: 2 }}
+            value={summary}
+            onChange={handleSummaryChange}
+            multiline
+            rows={5}
+            fullWidth
+            sx={{ p: 4 }}
           />
         </Box>
-      </Box>
-      <Box
-        display={"flex"}
-        flexDirection={"column"}
-        alignItems={"center"}
-        justifyContent={"center"}
-        paddingTop={4}
+      </CardContent>
+      <CardActions
+        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
       >
-        <TextField
-          variant={"outlined"}
-          label={"Subject"}
-          value={subject}
-          onChange={handleSubjectChange}
-        />
-        <TextField
-          variant={"outlined"}
-          value={content}
-          onChange={handleContentChange}
-          multiline
-          rows={5}
-          fullWidth
-          sx={{ p: 4 }}
-        />
-      </Box>
-      <Box
-        display={"flex"}
-        flexDirection={"column"}
-        alignItems={"center"}
-        justifyContent={"center"}
-      >
-        <Box sx={{ p: 4 }}>
-          <ProductsTable rows={products} />
-        </Box>
-      </Box>
-      <Box
-        display={"flex"}
-        alignItems={"center"}
-        justifyContent={"center"}
-        p={6}
-      >
-        <TextField
-          variant={"outlined"}
-          value={summary}
-          onChange={handleSummaryChange}
-          multiline
-          rows={5}
-          fullWidth
-          sx={{ p: 4 }}
-        />
-      </Box>
-    </div>
+        <IconButton>
+          <Save />
+        </IconButton>
+        <IconButton>
+          <Print />
+        </IconButton>
+      </CardActions>
+    </Card>
   );
 };
+
+export default OfferForm;
