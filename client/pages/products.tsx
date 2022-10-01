@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import { ProductCard } from "../components/ProductCard/ProductCard";
 import { createData } from "../data/products";
-import Product from "../types/Product";
+import Product from "../models/product";
 
 const ProductsPage: NextPage = () => {
   const categories = ["cameras", "alarm system"];

@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { CardActions, CardHeader, CardMedia } from "@mui/material";
 import React from "react";
-import Client from "../../types/Client";
+import { Client } from "../../models/client";
 
 type Props = {
   client: Client;

@@ -11,16 +11,16 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { Row, Rows } from "../../data/products";
+import { ProductRow } from "../../data/products";
 import DeleteDialog from "../Dialog/DeleteDialog";
 import EditDialog from "../Dialog/EditDialog";
 
 type Props = {
-  rows: Rows;
+  rows: ProductRow[];
 };
 
 export default function ProductsTable({ rows }: Props) {
-  const calculateTotal = (rows: Rows): number => {
+  const calculateTotal = (rows: ProductRow[]): number => {
     let sum = 0;
     for (const row of rows) {
       sum += row.price * row.quantity;
@@ -41,7 +41,7 @@ export default function ProductsTable({ rows }: Props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row: Row) => (
+          {rows.map((row: ProductRow) => (
             <TableRow key={row.id}>
               <TableCell component="th" scope="row">
                 <Avatar src={row.image} />

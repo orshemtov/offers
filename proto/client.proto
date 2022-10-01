@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package offers;
+
+message Client {
+    string name = 1;
+    string company = 2;
+    string address = 3;
+    string phone = 4;
+    string email =5;
+}

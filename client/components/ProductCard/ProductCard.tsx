@@ -9,7 +9,7 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-import Product from "../../types/Product";
+import { Product } from "../../models/product";
 
 type Props = {
   product: Product;

@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import Product from "../types/Product";
+import { Product } from "../models/product";
 
 export interface ProductRow extends Product {
   quantity: number;
