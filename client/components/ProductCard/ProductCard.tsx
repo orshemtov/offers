@@ -1,8 +1,15 @@
-import * as React from "react";
-import { Avatar, Box, Card, CardContent, IconButton } from "@mui/material";
-import Product from "../../models/Product";
-import { CardActions, CardHeader, Typography } from "@mui/material";
-import { Add } from "@mui/icons-material";
+import { Delete, Edit, MoreVert } from "@mui/icons-material";
+import {
+  Avatar,
+  Box,
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  IconButton,
+  Typography,
+} from "@mui/material";
+import Product from "../../types/Product";
 
 type Props = {
   product: Product;
@@ -10,26 +17,26 @@ type Props = {
 
 export function ProductCard({ product }: Props) {
   return (
-    <Card sx={{ minWidth: 275, boxShadow: "none", border: "1px solid black" }}>
+    <Card sx={{ maxWidth: 365, boxShadow: "none", border: "1px solid black" }}>
       <CardHeader
         title={product.name}
+        subheader={product.make}
         avatar={<Avatar src={product.image} />}
+        action={
+          <IconButton aria-label="settings">
+            <MoreVert />
+          </IconButton>
+        }
       />
-      <Box display={"flex"}>
-        <Box
-          display={"flex"}
-          flexDirection={"column"}
-          alignItems={"left"}
-          justifyContent={"space-between"}
-        >
-          <CardContent>
-            <Typography variant={"body1"}>{product.description}</Typography>
-          </CardContent>
-        </Box>
-      </Box>
+      <CardContent>
+        <Typography variant={"body1"}>{product.description}</Typography>
+      </CardContent>
       <CardActions>
         <IconButton>
-          <Add />
+          <Delete />
+        </IconButton>
+        <IconButton>
+          <Edit />
         </IconButton>
       </CardActions>
     </Card>

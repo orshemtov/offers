@@ -1,6 +1,6 @@
 import Product from "./Product";
 import Client from "./Client";
-import { Rows } from "../data/fake_products";
+import { Rows } from "../data/products";
 
 export default interface Offer {
   date: string;

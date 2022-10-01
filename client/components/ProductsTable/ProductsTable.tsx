@@ -1,5 +1,7 @@
-import { Delete, Edit } from "@mui/icons-material";
+import { Delete, Edit, ExpandMore } from "@mui/icons-material";
 import {
+  Accordion,
+  AccordionSummary,
   Avatar,
   Paper,
   Table,
@@ -9,7 +11,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { Row, Rows } from "../../data/fake_products";
+import { Row, Rows } from "../../data/products";
 import DeleteDialog from "../Dialog/DeleteDialog";
 import EditDialog from "../Dialog/EditDialog";
 
