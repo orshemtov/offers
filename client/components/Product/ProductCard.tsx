@@ -10,6 +10,8 @@ import {
   Typography,
 } from "@mui/material";
 import { Product } from "../../models/product";
+import DeleteDialog from "../Dialog/DeleteDialog";
+import EditDialog from "../Dialog/EditDialog";
 
 type Props = {
   product: Product;
@@ -32,12 +34,8 @@ export function ProductCard({ product }: Props) {
         <Typography variant={"body1"}>{product.description}</Typography>
       </CardContent>
       <CardActions>
-        <IconButton>
-          <Delete />
-        </IconButton>
-        <IconButton>
-          <Edit />
-        </IconButton>
+        <DeleteDialog />
+        <EditDialog />
       </CardActions>
     </Card>
   );

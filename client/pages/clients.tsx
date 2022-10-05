@@ -1,16 +1,19 @@
-import { Add } from "@mui/icons-material";
-import { Fab, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import type { NextPage } from "next";
-import ClientCard from "../components/ClientCard/ClientCard";
+import ClientCard from "../components/Client/ClientCard";
+import NewClient from "../components/Client/NewClient";
+import NewItemDialog from "../components/Dialog/NewItemDialog";
 import Layout from "../components/Layout/Layout";
+import Search from "../components/Search/Search";
 import { clients } from "../data/clients";
 
 const ClientsPage: NextPage = () => {
   return (
     <Layout>
-      <Fab color="primary">
-        <Add />
-      </Fab>
+      <NewItemDialog>
+        <NewClient />
+      </NewItemDialog>
+      <Search />
       <Grid container rowSpacing={4}>
         {clients.map((c, i) => {
           return (

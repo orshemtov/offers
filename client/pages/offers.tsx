@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Modal } from "@mui/material";
 import type { NextPage } from "next";
 import Layout from "../components/Layout/Layout";
 import OfferForm from "../components/Offer/Form";
@@ -6,7 +6,7 @@ import { Sidebar } from "../components/Sidebar/Sidebar";
 
 const OffersPage: NextPage = () => {
   return (
-    <Layout>
+    <Modal open={true}>
       <Box display={"flex"}>
         <Box flex={8}>
           <OfferForm />
@@ -15,7 +15,7 @@ const OffersPage: NextPage = () => {
           <Sidebar />
         </Box>
       </Box>
-    </Layout>
+    </Modal>
   );
 };
 

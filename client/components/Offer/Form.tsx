@@ -8,13 +8,13 @@ import {
   SpeedDialAction,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { Actions } from "./Actions";
-import { Content } from "./Content";
-import { Logo } from "./Logo";
-import { Notes } from "./Notes";
-import { Products } from "./Products";
-import { Receiver } from "./Receiver";
-import { Subject } from "./Subject";
+import { Actions } from "./components/Actions";
+import { Content } from "./components/Content";
+import { Logo } from "./components/Logo";
+import { Notes } from "./components/Notes";
+import { Products } from "./components/Products";
+import { Receiver } from "./components/Receiver";
+import { Subject } from "./components/Subject";
 
 const actions = [
   { icon: <FormatListBulleted />, name: "Category" },

@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { createData, ProductRow } from "../../data/products";
-import ProductsTable from "../ProductsTable/ProductsTable";
+import ProductsTable from "../Product/ProductsTable";
 
 export const Products = () => {
   const categories = ["cameras", "alarm system"];

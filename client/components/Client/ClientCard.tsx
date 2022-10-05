@@ -10,6 +10,8 @@ import {
 import { CardActions, CardHeader, CardMedia } from "@mui/material";
 import React from "react";
 import { Client } from "../../models/client";
+import DeleteDialog from "../Dialog/DeleteDialog";
+import EditDialog from "../Dialog/EditDialog";
 
 type Props = {
   client: Client;
@@ -36,6 +38,8 @@ const ClientCard = ({ client }: Props) => {
       <CardActions>
         <Button>New Offer</Button>
         <Button>Past Offers</Button>
+        <DeleteDialog />
+        <EditDialog />
       </CardActions>
     </Card>
   );

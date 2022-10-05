@@ -10,7 +10,7 @@ import Link from "next/link";
 type Props = {};
 
 export function Topbar(props: Props) {
-  const pages: string[] = ["Clients", "Offers", "Products"];
+  const pages: string[] = ["Clients", "Products"];
   return (
     <AppBar position="static">
       <Container maxWidth="xl">

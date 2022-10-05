@@ -15,7 +15,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useState } from "react";
-import { ProductCard } from "../ProductCard/ProductCard";
+import { ProductCard } from "../Product/ProductCard";
 import { ProductRow, createData } from "../../data/products";
 import Search from "../Search/Search";
 

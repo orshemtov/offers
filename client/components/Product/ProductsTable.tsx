@@ -41,8 +41,8 @@ export default function ProductsTable({ rows }: Props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row: ProductRow) => (
-            <TableRow key={row.id}>
+          {rows.map((row: ProductRow, i: number) => (
+            <TableRow key={i}>
               <TableCell component="th" scope="row">
                 <Avatar src={row.image} />
               </TableCell>

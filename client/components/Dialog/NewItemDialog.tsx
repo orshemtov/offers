@@ -1,17 +1,23 @@
-import { Delete } from "@mui/icons-material";
+import { Add } from "@mui/icons-material";
 import { Button, Sheet } from "@mui/joy";
 import {
-  IconButton,
+  Box,
   Dialog,
-  Typography,
-  DialogTitle,
   DialogActions,
+  DialogContent,
+  DialogTitle,
+  Fab,
+  IconButton,
+  Modal,
+  Typography,
 } from "@mui/material";
 import { useState } from "react";
 
-type Props = {};
+type Props = {
+  children: any;
+};
 
-const DeleteDialog = (props: Props) => {
+const NewItemDialog = (props: Props) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const handleClick = () => {
@@ -19,8 +25,10 @@ const DeleteDialog = (props: Props) => {
   };
 
   return (
-    <IconButton color={"error"} onClick={handleClick}>
-      <Delete />
+    <Box>
+      <Fab color="primary" onClick={handleClick}>
+        <Add />
+      </Fab>
       <Dialog
         sx={{
           display: "flex",
@@ -33,15 +41,18 @@ const DeleteDialog = (props: Props) => {
         }}
       >
         <DialogTitle>
-          <Typography>Are you sure?</Typography>
+          <Typography>New Item</Typography>
         </DialogTitle>
+
+        <DialogContent>{props.children}</DialogContent>
+
         <DialogActions>
-          <Button>Yes</Button>
+          <Button>OK</Button>
           <Button>Cancel</Button>
         </DialogActions>
       </Dialog>
-    </IconButton>
+    </Box>
   );
 };
 
-export default DeleteDialog;
+export default NewItemDialog;
