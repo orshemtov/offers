@@ -1,7 +1,4 @@
-import { Delete, Edit, ExpandMore } from "@mui/icons-material";
 import {
-  Accordion,
-  AccordionSummary,
   Avatar,
   Paper,
   Table,
@@ -11,19 +8,27 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { ProductRow } from "../../data/products";
-import DeleteDialog from "../Dialog/DeleteDialog";
-import EditDialog from "../Dialog/EditDialog";
+import { Product } from "../../../models/product";
+import DeleteDialog from "../../Dialog/DeleteDialog";
+import EditDialog from "../../Dialog/EditDialog";
 
 type Props = {
-  rows: ProductRow[];
+  products: Product[];
 };
 
-export default function ProductsTable({ rows }: Props) {
-  const calculateTotal = (rows: ProductRow[]): number => {
+interface ProductWithQuantity extends Product {
+  quantity: number;
+}
+
+export default function ProductsTable({ products }: Props) {
+  const productsWithQuantities = products.map((p) => {
+    return { ...p, quantity: 1 };
+  });
+
+  const total = (products: ProductWithQuantity[]): number => {
     let sum = 0;
-    for (const row of rows) {
-      sum += row.price * row.quantity;
+    for (const product of products) {
+      sum += product.quantity * product.price;
     }
     return sum;
   };
@@ -41,7 +46,7 @@ export default function ProductsTable({ rows }: Props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row: ProductRow, i: number) => (
+          {productsWithQuantities.map((row, i) => (
             <TableRow key={i}>
               <TableCell component="th" scope="row">
                 <Avatar src={row.image} />
@@ -61,7 +66,7 @@ export default function ProductsTable({ rows }: Props) {
             <TableCell align="right"></TableCell>
             <TableCell align="right"></TableCell>
             <TableCell align="right"></TableCell>
-            <TableCell align="right">{calculateTotal(rows)}</TableCell>
+            <TableCell align="right">{total(productsWithQuantities)}</TableCell>
           </TableRow>
         </TableBody>
       </Table>

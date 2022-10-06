@@ -1,4 +1,4 @@
-import { ExpandMore, FormatListBulleted } from "@mui/icons-material";
+import { ExpandMore } from "@mui/icons-material";
 import {
   Accordion,
   AccordionSummary,
@@ -7,16 +7,24 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { createData, ProductRow } from "../../data/products";
-import ProductsTable from "../Product/ProductsTable";
+import { Product } from "../../../models/product";
+import ProductsTable from "./ProductsTable";
 
 export const Products = () => {
-  const categories = ["cameras", "alarm system"];
-
-  const [products, setProducts] = useState<ProductRow[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    setProducts(createData());
+    const cat = ["cameras", "alarm system"];
+    setCategories(cat);
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/products")
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+      });
   }, []);
 
   return (
@@ -26,14 +34,14 @@ export const Products = () => {
       alignItems={"center"}
       justifyContent={"center"}
     >
-      {categories.map((c, i) => {
+      {categories.map((cat, i) => {
         return (
           <Accordion key={i}>
             <AccordionSummary expandIcon={<ExpandMore />}>
-              <Typography>{c}</Typography>
+              <Typography>{cat}</Typography>
             </AccordionSummary>
             <Box sx={{ p: 4 }}>
-              <ProductsTable rows={products} />
+              <ProductsTable products={products} />
             </Box>
           </Accordion>
         );
