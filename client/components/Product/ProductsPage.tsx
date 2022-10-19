@@ -1,9 +1,9 @@
-import { Search } from "@mui/icons-material";
 import { Box, Typography, Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Product } from "../../models/product";
 import NewItemDialog from "../Dialog/NewItemDialog";
 import Layout from "../Layout/Layout";
+import Search from "../Search/Search";
 import NewProduct from "./NewProduct";
 import { ProductCard } from "./ProductCard";
 
