@@ -1,9 +1,9 @@
 package model
 
-import (
-	"gorm.io/gorm"
-)
-
-type Offer struct {
-	gorm.Model
+type Product struct {
+	name        string
+	make        string
+	description string
+	price       float64
+	image       string
 }

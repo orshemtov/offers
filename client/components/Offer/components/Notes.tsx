@@ -1,13 +1,12 @@
-import { Note } from "@mui/icons-material";
-import { Box, Fab, TextField } from "@mui/material";
-import React, { useState } from "react";
+import { Box, TextField } from "@mui/material"
+import React, { useState } from "react"
 
 export const Notes = () => {
-  const [note, setNote] = useState<string>("");
+  const [note, setNote] = useState<string>("")
 
   const handleNoteChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNote(e.target.value);
-  };
+    setNote(e.target.value)
+  }
 
   return (
     <Box display={"flex"} alignItems={"center"} justifyContent={"center"} p={6}>
@@ -21,5 +20,5 @@ export const Notes = () => {
         sx={{ p: 4 }}
       />
     </Box>
-  );
-};
+  )
+}

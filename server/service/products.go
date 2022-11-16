@@ -1,25 +1,35 @@
 package service
 
-import model "github.com/orshemtov/offers/server/model"
+import (
+	"github.com/orshemtov/offers/server/model"
+	"go.mongodb.org/mongo-driver/mongo"
+)
 
-type ProductService struct {}
+type ProductService struct {
+	db *mongo.Client
+}
 
-func (s ProductService) GetAll() []model.Product {
+func (s *ProductService) getCollection() *mongo.Collection {
+	collectionName := "products"
+	return s.db.Database(dbName).Collection(collectionName)
+}
+
+func (s *ProductService) GetAll() []model.Product {
+	panic("unimplemnted")
+}
+
+func (s *ProductService) Get(id string) model.Product {
 	panic("unimplemented")
 }
 
-func (s ProductService) Get(id string) model.Product {
+func (s *ProductService) Create(data model.Product) model.Product {
 	panic("unimplemented")
 }
 
-func (s ProductService) Create(data model.Product) model.Product {
+func (s *ProductService) Update(id string, data model.Product) model.Product {
 	panic("unimplemented")
 }
 
-func (s ProductService) Update(id string, data model.Product) model.Product {
-	panic("unimplemented")
-}
-
-func (s ProductService) Delete(id string) {
+func (s *ProductService) Delete(id string) {
 	panic("unimplemented")
 }

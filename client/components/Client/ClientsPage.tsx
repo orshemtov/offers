@@ -1,41 +1,40 @@
-import { Search } from "@mui/icons-material";
-import { Grid } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import { Client } from "../../models/client";
-import NewItemDialog from "../Dialog/NewItemDialog";
-import Layout from "../Layout/Layout";
-import ClientCard from "./ClientCard";
-import NewClient from "./NewClient";
+import { Box, Grid } from "@mui/material"
+import React, { useEffect, useState } from "react"
+import { Client } from "../../models/client"
+import ClientCard from "./ClientCard"
+import styles from "../../styles/ClientsPage.module.css"
+import NewClientDialog from "./NewClientDialog"
+import Search from "../Search/Search"
 
 type Props = {};
 
 const ClientsPage = (props: Props) => {
-  const [clients, setClients] = useState<Client[]>([]);
+  const [clients, setClients] = useState<Client[]>([])
   useEffect(() => {
     fetch("/api/clients")
       .then((res) => res.json())
       .then((data) => {
-        setClients(data);
-      });
-  }, []);
+        setClients(data)
+      })
+  }, [])
 
   return (
-    <Layout>
-      <NewItemDialog>
-        <NewClient />
-      </NewItemDialog>
-      <Search />
+    <Box>
+      <Search/>
+      <div className={styles.newItemDialog}>
+        <NewClientDialog/>
+      </div>
       <Grid container rowSpacing={4}>
         {clients.map((c, i) => {
           return (
             <Grid key={i} item xs={4}>
-              <ClientCard client={c} />
+              <ClientCard client={c}/>
             </Grid>
-          );
+          )
         })}
       </Grid>
-    </Layout>
-  );
-};
+    </Box>
+  )
+}
 
-export default ClientsPage;
+export default ClientsPage

@@ -1,9 +1,9 @@
-import React from "react";
+import React from "react"
 
 type Props = {};
 
 const TableOfContents = (props: Props) => {
-  return <div>TableOfContents</div>;
-};
+  return <div>TableOfContents</div>
+}
 
-export default TableOfContents;
+export default TableOfContents

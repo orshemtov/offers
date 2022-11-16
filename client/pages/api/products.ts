@@ -8,17 +8,17 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Product[]>
 ) {
-  let items: Product[] = [];
-  const n = faker.datatype.number({ min: 1, max: 10 });
-  for (let i = 0; i < n; i++) {
-    const product = {
-      image: faker.image.technics(30, 30, true),
-      make: faker.company.name(),
-      name: faker.commerce.productName(),
-      description: faker.commerce.productDescription(),
-      price: parseInt(faker.commerce.price(10, 2000)),
-    };
-    items.push(product);
+  switch (req.method) {
+    case "GET":
+      res.status(200)
+      break
+    case "POST":
+      res.status(201)
+      break
+    case "PUT":
+      res.status(201)
+      break
+    case "DELETE":
+      res.status(204)
   }
-  res.status(200).json(items);
 }

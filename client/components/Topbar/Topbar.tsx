@@ -1,21 +1,23 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import { Business } from "@mui/icons-material";
-import { Box, Button } from "@mui/material";
-import Link from "next/link";
+import * as React from "react"
+import AppBar from "@mui/material/AppBar"
+import Toolbar from "@mui/material/Toolbar"
+import Typography from "@mui/material/Typography"
+import Container from "@mui/material/Container"
+import { Business } from "@mui/icons-material"
+import { Box, Button } from "@mui/material"
+import Link from "next/link"
 
 type Props = {};
 
+const title = "BarCom"
+
 export function Topbar(props: Props) {
-  const pages: string[] = ["Clients", "Products"];
+  const pages: string[] = ["Clients", "Products"]
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Business sx={{ display: "flex", mr: 1 }} />
+          <Business sx={{ display: "flex", mr: 1 }}/>
           <Typography
             variant="h6"
             noWrap
@@ -27,10 +29,10 @@ export function Topbar(props: Props) {
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "inherit",
-              textDecoration: "none",
+              textDecoration: "none"
             }}
           >
-            BarCom
+            {title}
           </Typography>
           <Box sx={{ flexGrow: 1, display: "flex" }}>
             {pages.map((page) => (
@@ -45,5 +47,5 @@ export function Topbar(props: Props) {
         </Toolbar>
       </Container>
     </AppBar>
-  );
+  )
 }

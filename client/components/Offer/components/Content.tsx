@@ -1,13 +1,12 @@
-import { ShortText } from "@mui/icons-material";
-import { Box, Fab, TextField } from "@mui/material";
-import React, { useState } from "react";
+import { Box, TextField } from "@mui/material"
+import React, { useState } from "react"
 
 export const Content = () => {
-  const [content, setContent] = useState<string>("");
+  const [content, setContent] = useState<string>("")
 
   const handleContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setContent(e.target.value);
-  };
+    setContent(e.target.value)
+  }
 
   return (
     <Box
@@ -27,5 +26,5 @@ export const Content = () => {
         sx={{ p: 4 }}
       />
     </Box>
-  );
-};
+  )
+}

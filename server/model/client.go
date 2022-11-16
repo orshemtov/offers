@@ -1,10 +1,9 @@
 package model
 
-import (
-    "gorm.io/gorm"
-)
-
 type Client struct {
-	gorm.Model
+	name    string
+	company string
+	address string
+	phone   string
+	email   string
 }
-

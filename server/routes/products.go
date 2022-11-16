@@ -1,9 +1,12 @@
 package routes
 
-import "github.com/orshemtov/offers/server/service"
-import "github.com/orshemtov/offers/server/model"
-import "github.com/gin-gonic/gin"
-import "net/http"
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+	"github.com/orshemtov/offers/server/model"
+	"github.com/orshemtov/offers/server/service"
+)
 
 var productService service.ProductService
 

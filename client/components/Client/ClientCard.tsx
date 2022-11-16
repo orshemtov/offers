@@ -7,7 +7,7 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-import { CardActions, CardHeader, CardMedia } from "@mui/material";
+import { CardActions, CardHeader } from "@mui/material";
 import React from "react";
 import { Client } from "../../models/client";
 import DeleteDialog from "../Dialog/DeleteDialog";

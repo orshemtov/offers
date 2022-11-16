@@ -1,6 +1,6 @@
-import { Print, Save } from "@mui/icons-material";
-import { CardActions, IconButton } from "@mui/material";
-import React from "react";
+import { Print, Save } from "@mui/icons-material"
+import { CardActions, IconButton } from "@mui/material"
+import React from "react"
 
 export const Actions = () => {
   return (
@@ -8,11 +8,11 @@ export const Actions = () => {
       sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
     >
       <IconButton>
-        <Save />
+        <Save/>
       </IconButton>
       <IconButton>
-        <Print />
+        <Print/>
       </IconButton>
     </CardActions>
-  );
-};
+  )
+}

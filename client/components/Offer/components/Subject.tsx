@@ -1,12 +1,12 @@
-import { Box, TextField } from "@mui/material";
-import React, { useState } from "react";
+import { Box, TextField } from "@mui/material"
+import React, { useState } from "react"
 
 export const Subject = () => {
-  const [subject, setSubject] = useState<string>("");
+  const [subject, setSubject] = useState<string>("")
 
   const handleSubjectChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSubject(e.target.value);
-  };
+    setSubject(e.target.value)
+  }
 
   return (
     <Box
@@ -24,5 +24,5 @@ export const Subject = () => {
         sx={{ width: 500 }}
       />
     </Box>
-  );
-};
+  )
+}
