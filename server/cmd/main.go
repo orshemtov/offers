@@ -4,7 +4,8 @@ import (
 	"log"
 
 	"github.com/gin-gonic/gin"
-	"github.com/orshemtov/offers/server/routes"
+	_ "github.com/orshemtov/offers/server/pkg/model" // Initializes the database through its init() function
+	"github.com/orshemtov/offers/server/pkg/routes"
 )
 
 func registerRoutes(r *gin.Engine) {
@@ -26,9 +27,5 @@ func registerRoutes(r *gin.Engine) {
 func main() {
 	r := gin.Default()
 	registerRoutes(r)
-
-	err := r.Run(":8080")
-	if err != nil {
-		log.Fatal(err)
-	}
+	log.Fatal(r.Run(":8080"))
 }
