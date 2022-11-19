@@ -5,23 +5,25 @@ import (
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/orshemtov/offers/server/pkg/model" // Initializes the database through its init() function
-	"github.com/orshemtov/offers/server/pkg/routes"
+	"github.com/orshemtov/offers/server/pkg/route"
 )
 
 func registerRoutes(r *gin.Engine) {
-	// /clients
-	r.GET("/clients", routes.GetClients)
-	r.GET("/clients/:id", routes.GetClient)
-	r.POST("/clients", routes.CreateClient)
-	r.PUT("/clients", routes.UpdateClient)
-	r.DELETE("/clients", routes.DeleteClient)
+	// clients
+	r.GET("/clients", route.GetClients)
+	r.GET("/clients/:id", route.GetClient)
+	r.POST("/clients", route.CreateClient)
+	r.POST("/clients/bulk", route.CreateClients)
+	r.PUT("/clients", route.UpdateClient)
+	r.DELETE("/clients", route.DeleteClient)
 
-	// /products
-	r.GET("/products/:id", routes.GetProducts)
-	r.GET("/products", routes.GetProduct)
-	r.POST("/products", routes.CreateProduct)
-	r.PUT("/products", routes.UpdateProduct)
-	r.DELETE("/products", routes.DeleteProduct)
+	// products
+	r.GET("/products", route.GetProducts)
+	r.GET("/products/:id", route.GetProduct)
+	r.POST("/products", route.CreateProduct)
+	r.POST("/products/bulk", route.CreateProducts)
+	r.PUT("/products", route.UpdateProduct)
+	r.DELETE("/products", route.DeleteProduct)
 }
 
 func main() {

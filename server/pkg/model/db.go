@@ -7,7 +7,9 @@ import (
 	"gorm.io/gorm"
 )
 
-const dbPath = "test.db"
+const (
+	dbPath = "test.db"
+)
 
 var DB *gorm.DB
 
@@ -16,7 +18,7 @@ func init() {
 	if err != nil {
 		panic("failed to connect to database")
 	}
-	db.AutoMigrate(&Client{}, &Product{})
+	_ = db.AutoMigrate(&Client{}, &Product{})
 	DB = db
 	log.Println("connected to database")
 }
