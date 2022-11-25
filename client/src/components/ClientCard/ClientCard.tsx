@@ -1,12 +1,13 @@
 import React, { useState } from "react"
 import "./clientCard.css"
 import {
+  Avatar,
   Box,
   Button,
   Card,
   CardActions,
   CardContent,
-  Grid,
+  CardHeader,
   IconButton,
   Modal,
   Paper,
@@ -17,20 +18,21 @@ import {
   TableRow,
   TextField
 } from "@mui/material"
-import { Delete, Edit } from "@mui/icons-material"
-import axios from "axios"
+import { Delete, Edit, Person } from "@mui/icons-material"
+import { Client, deleteClient, editClient } from "../../api"
+import { red } from "@mui/material/colors"
 
-export interface Client {
-  ID: number
-  name: string
-  company: string
-  address: string
-  phone: string
-  email: string
-}
 
 type Props = {
   client: Client
+  clients: Client[]
+  setClients: (clients: Client[]) => void,
+}
+
+const cardStyle = {
+  border: "none",
+  boxShadow: "none",
+  maxWidth: 500
 }
 
 const modalStyle = {
@@ -45,25 +47,48 @@ const modalStyle = {
   p: 4
 }
 
-
-const editClient = async (id: number) => {
-  const url = `/clients/${id}`
+const modalCardStyle = {
+  boxShadow: "none"
 }
 
-const deleteClient = async (id: number) => {
-  const url = `/clients?id=${id}`
-  await axios.delete(url)
+const textFieldStyle = {
+  marginY: 4,
+  width: "100%"
 }
 
-export function ClientCard({ client }: Props) {
+
+export function ClientCard({ client, clients, setClients }: Props) {
   const [editModalOpen, setEditModalOpen] = useState<boolean>(false)
 
+  const [name, setName] = useState<string>(client.name)
+  const [company, setCompany] = useState<string>(client.company)
+  const [address, setAddress] = useState<string>(client.address)
+  const [phone, setPhone] = useState<string>(client.phone)
+  const [email, setEmail] = useState<string>(client.email)
 
-  const handleDelete = async (e: any) => {
+  const handleDeleteSubmit = async (e: any) => {
     await deleteClient(client.ID)
+    clients = clients.filter((c) => c.ID !== client.ID)
+    setClients(clients)
   }
 
-  const handleEdit = (e: any) => {
+  const handleEditSubmit = async () => {
+    const data = {
+      ID: client.ID,
+      name: name,
+      company: company,
+      address: address,
+      phone: phone,
+      email: email
+    }
+    await editClient(client.ID, data)
+    setEditModalOpen(false)
+
+    clients[clients.indexOf(client)] = data
+    setClients([...clients])
+  }
+
+  const handleEditModal = (e: any) => {
     setEditModalOpen(true)
   }
 
@@ -75,19 +100,69 @@ export function ClientCard({ client }: Props) {
     setEditModalOpen(false)
   }
 
-  return <Card sx={{ border: "none", boxShadow: "none" }}>
-    <CardContent sx={{ display: "flex" }}>
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value)
+  }
+
+  const handleCompanyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCompany(e.target.value)
+  }
+
+  const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAddress(e.target.value)
+  }
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPhone(e.target.value)
+  }
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value)
+  }
+
+
+  return <Card sx={cardStyle}>
+    <CardHeader
+      avatar={
+        <Avatar sx={{ bgcolor: red[500] }}>
+          <Person/>
+        </Avatar>
+      }
+      title={client.name}
+      subheader={client.company}
+      action={
+        <CardActions>
+          <IconButton onClick={handleEditModal}>
+            <Edit color={"primary"}/>
+          </IconButton>
+          <IconButton onClick={handleDeleteSubmit}>
+            <Delete color={"error"}/>
+          </IconButton>
+          <Modal open={editModalOpen} onClose={handleEditModalClose}>
+            <Box sx={modalStyle}>
+              <Card sx={modalCardStyle}>
+                <CardContent>
+                  <TextField sx={textFieldStyle} label={"Name"} value={name} onChange={handleNameChange}/>
+                  <TextField sx={textFieldStyle} label={"Company"} value={company} onChange={handleCompanyChange}/>
+                  <TextField sx={textFieldStyle} label={"Address"} multiline rows={4} value={address}
+                             onChange={handleAddressChange}/>
+                  <TextField sx={textFieldStyle} label={"Phone"} value={phone} onChange={handlePhoneChange}/>
+                  <TextField sx={textFieldStyle} label={"Email"} value={email} onChange={handleEmailChange}/>
+                </CardContent>
+                <CardActions>
+                  <Button onClick={handleEditSubmit}>Update</Button>
+                  <Button onClick={handleEditCancel}>Cancel</Button>
+                </CardActions>
+              </Card>
+            </Box>
+          </Modal>
+        </CardActions>
+      }
+    />
+    <CardContent>
       <TableContainer component={Paper} sx={{ boxShadow: "none", flex: 0.5 }}>
         <Table>
           <TableBody>
-            <TableRow>
-              <TableCell sx={{ fontWeight: 700 }}>Name</TableCell>
-              <TableCell>{client.name}</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell sx={{ fontWeight: 700 }}>Company</TableCell>
-              <TableCell>{client.company}</TableCell>
-            </TableRow>
             <TableRow>
               <TableCell sx={{ fontWeight: 700 }}>Address</TableCell>
               <TableCell>{client.address}</TableCell>
@@ -103,46 +178,10 @@ export function ClientCard({ client }: Props) {
           </TableBody>
         </Table>
       </TableContainer>
-      <Box flex={0.5}>
-
-      </Box>
     </CardContent>
     <CardActions>
       <Button>New Offer</Button>
       <Button>Past Offers</Button>
-      <IconButton onClick={handleEdit}>
-        <Edit color={"primary"}/>
-      </IconButton>
-      <Modal open={editModalOpen} onClose={handleEditModalClose}>
-        <Box sx={modalStyle}>
-          <Grid container spacing={4} columns={1}>
-            <Grid item>
-              <TextField label={"Name"} value={client.name}/>
-            </Grid>
-            <Grid item>
-            </Grid>
-            <Grid item>
-              <TextField label={"Company"} value={client.company}/>
-            </Grid>
-            <Grid item>
-              <TextField label={"Address"} value={client.address}/>
-            </Grid>
-            <Grid item>
-              <TextField label={"Phone"} value={client.phone}/>
-            </Grid>
-            <Grid item>
-              <TextField label={"Email"} value={client.email}/>
-            </Grid>
-            <Grid item xs={4}>
-              <Button>Update</Button>
-              <Button onClick={handleEditCancel}>Cancel</Button>
-            </Grid>
-          </Grid>
-        </Box>
-      </Modal>
-      <IconButton onClick={handleDelete}>
-        <Delete color={"error"}/>
-      </IconButton>
     </CardActions>
   </Card>
 
