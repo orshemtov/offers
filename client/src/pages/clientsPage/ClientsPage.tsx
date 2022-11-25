@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Box, Button, Card, CardActions, CardContent, Fab, Modal, TextField } from "@mui/material"
+import { Box, Button, Card, CardActions, CardContent, Fab, Grid, Modal, TextField } from "@mui/material"
 import { Add } from "@mui/icons-material"
 import { Client, createClient, getClients } from "../../api"
 import { ClientCard } from "../../components/ClientCard/ClientCard"
@@ -100,11 +100,24 @@ const ClientsPage = () => {
 
   return (
     <Box>
-      {
-        clients.map((client: Client, i: number) => (
-          <ClientCard key={i} client={client} clients={clients} setClients={setClients}/>)
-        )
-      }
+      <Grid
+        padding={6}
+        marginBottom={10}
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        gap={4}
+      >
+        {
+          clients.map((client: Client, i: number) => (
+              <Grid>
+                <ClientCard key={i} client={client} clients={clients} setClients={setClients}/>
+              </Grid>
+            )
+          )
+        }
+      </Grid>
       <Fab color={"primary"} sx={fabStyle} onClick={handleNewClientModalClick}>
         <Add/>
         <Modal open={newClientModalOpen} onClose={handleNewClientModalClose}>

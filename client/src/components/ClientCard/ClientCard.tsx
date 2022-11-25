@@ -20,7 +20,7 @@ import {
 } from "@mui/material"
 import { Delete, Edit, Person } from "@mui/icons-material"
 import { Client, deleteClient, editClient } from "../../api"
-import { red } from "@mui/material/colors"
+import { blue, grey, red, yellow } from "@mui/material/colors"
 
 
 type Props = {
@@ -32,7 +32,10 @@ type Props = {
 const cardStyle = {
   border: "none",
   boxShadow: "none",
-  maxWidth: 500
+  maxWidth: 700,
+  minWidth: 700,
+  backgroundColor: grey[300],
+  borderRadius: 5,
 }
 
 const modalStyle = {
@@ -124,7 +127,7 @@ export function ClientCard({ client, clients, setClients }: Props) {
   return <Card sx={cardStyle}>
     <CardHeader
       avatar={
-        <Avatar sx={{ bgcolor: red[500] }}>
+        <Avatar sx={{ bgcolor: blue[500] }}>
           <Person/>
         </Avatar>
       }
@@ -160,7 +163,7 @@ export function ClientCard({ client, clients, setClients }: Props) {
       }
     />
     <CardContent>
-      <TableContainer component={Paper} sx={{ boxShadow: "none", flex: 0.5 }}>
+      <TableContainer component={Paper} sx={{ boxShadow: "none", flex: 0.5, backgroundColor: grey[200] }}>
         <Table>
           <TableBody>
             <TableRow>

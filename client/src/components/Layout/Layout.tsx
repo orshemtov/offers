@@ -7,7 +7,7 @@ import { blue } from "@mui/material/colors"
 const footerStyle = {
   color: "white",
   backgroundColor: blue[500],
-  fontWeight: 700
+  fontWeight: 700,
 }
 
 type Props = {
