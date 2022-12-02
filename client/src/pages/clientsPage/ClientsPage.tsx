@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Box, Button, Card, CardActions, CardContent, Fab, Grid, Modal, TextField } from "@mui/material"
 import { Add } from "@mui/icons-material"
-import { Client, createClient, getClients } from "../../api"
+import { Client, createClient, getClients } from "../../api/clients"
 import { ClientCard } from "../../components/ClientCard/ClientCard"
 
 

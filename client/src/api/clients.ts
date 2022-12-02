@@ -9,6 +9,7 @@ export interface Client {
   email: string
 }
 
+
 export const getClients = async () => {
   const url = "/clients"
   const resp = await axios.get(url)

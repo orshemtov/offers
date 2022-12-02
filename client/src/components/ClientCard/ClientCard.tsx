@@ -19,8 +19,9 @@ import {
   TextField
 } from "@mui/material"
 import { Delete, Edit, Person } from "@mui/icons-material"
-import { Client, deleteClient, editClient } from "../../api"
-import { blue, grey, red, yellow } from "@mui/material/colors"
+import { Client, deleteClient, editClient } from "../../api/clients"
+import { blue, grey } from "@mui/material/colors"
+import NewOffer from "../NewOffer/NewOffer"
 
 
 type Props = {
@@ -35,7 +36,7 @@ const cardStyle = {
   maxWidth: 700,
   minWidth: 700,
   backgroundColor: grey[300],
-  borderRadius: 5,
+  borderRadius: 5
 }
 
 const modalStyle = {
@@ -183,7 +184,7 @@ export function ClientCard({ client, clients, setClients }: Props) {
       </TableContainer>
     </CardContent>
     <CardActions>
-      <Button>New Offer</Button>
+      <NewOffer/>
       <Button>Past Offers</Button>
     </CardActions>
   </Card>
