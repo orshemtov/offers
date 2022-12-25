@@ -35,7 +35,7 @@ const textFieldStyle = {
   width: "100%"
 }
 
-const ClientsPage = () => {
+const ClientPage = () => {
   const [clients, setClients] = useState<Client[]>([])
   const [newClientModalOpen, setNewClientModalOpen] = useState(false)
 
@@ -142,4 +142,4 @@ const ClientsPage = () => {
   )
 }
 
-export default ClientsPage
+export default ClientPage
