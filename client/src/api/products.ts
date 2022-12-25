@@ -3,6 +3,7 @@ import axios from "axios"
 export interface Product {
   ID: number
   name: string
+  section: string
   make: string
   description: string
   price: number
@@ -11,6 +12,12 @@ export interface Product {
 
 export const getProducts = async () => {
   const url = "/products"
+  const resp = await axios.get(url)
+  return await resp.data
+}
+
+export const getProductsBySection = async () => {
+  const url = "/products/sections"
   const resp = await axios.get(url)
   return await resp.data
 }

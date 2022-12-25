@@ -8,6 +8,7 @@ function App() {
   return (
     <Box display={"flex"}>
       <Box flex={0.8}>
+
       </Box>
       <Box flex={0.2}>
         <ProductSelect/>

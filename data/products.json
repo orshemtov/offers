@@ -1,142 +1,162 @@
 [
   {
-    "name": "Unbranded Granite Salad",
-    "make": "Mills - Tromp",
-    "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-    "price": 391,
-    "image": "https://loremflickr.com/640/480/business"
-  },
-  {
-    "name": "Electronic Steel Salad",
-    "make": "Bode Group",
-    "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-    "price": 621,
-    "image": "https://loremflickr.com/640/480/business"
-  },
-  {
-    "name": "Refined Rubber Chair",
-    "make": "Kulas Group",
-    "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-    "price": 977,
-    "image": "https://loremflickr.com/640/480/business"
-  },
-  {
-    "name": "Ergonomic Bronze Ball",
-    "make": "Abernathy LLC",
-    "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-    "price": 885,
-    "image": "https://loremflickr.com/640/480/business"
-  },
-  {
-    "name": "Elegant Bronze Sausages",
-    "make": "Hintz Group",
+    "name": "Modern Wooden Chicken",
+    "section": "Home",
+    "make": "Marks - Block",
     "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-    "price": 614,
+    "price": 889,
     "image": "https://loremflickr.com/640/480/business"
   },
   {
-    "name": "Elegant Metal Gloves",
-    "make": "Schulist, Grant and Oberbrunner",
-    "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-    "price": 958,
+    "name": "Small Cotton Shoes",
+    "section": "Automotive",
+    "make": "Connelly and Sons",
+    "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+    "price": 697,
     "image": "https://loremflickr.com/640/480/business"
   },
   {
-    "name": "Awesome Steel Hat",
-    "make": "Rowe Group",
-    "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-    "price": 709,
-    "image": "https://loremflickr.com/640/480/business"
-  },
-  {
-    "name": "Sleek Cotton Chips",
-    "make": "Ferry, Bernier and Beatty",
-    "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-    "price": 756,
-    "image": "https://loremflickr.com/640/480/business"
-  },
-  {
-    "name": "Electronic Plastic Table",
-    "make": "Ward - Schaden",
-    "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-    "price": 68,
-    "image": "https://loremflickr.com/640/480/business"
-  },
-  {
-    "name": "Awesome Concrete Car",
-    "make": "Beier - Thiel",
-    "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-    "price": 228,
-    "image": "https://loremflickr.com/640/480/business"
-  },
-  {
-    "name": "Generic Steel Soap",
-    "make": "Stroman, Mante and Hodkiewicz",
-    "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-    "price": 781,
-    "image": "https://loremflickr.com/640/480/business"
-  },
-  {
-    "name": "Generic Granite Towels",
-    "make": "Hodkiewicz - Robel",
-    "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-    "price": 174,
-    "image": "https://loremflickr.com/640/480/business"
-  },
-  {
-    "name": "Rustic Bronze Hat",
-    "make": "Bauch, Larkin and Huels",
-    "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-    "price": 898,
-    "image": "https://loremflickr.com/640/480/business"
-  },
-  {
-    "name": "Oriental Rubber Bacon",
-    "make": "Lueilwitz, Jast and Fadel",
-    "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-    "price": 422,
-    "image": "https://loremflickr.com/640/480/business"
-  },
-  {
-    "name": "Intelligent Metal Chicken",
-    "make": "Moore, Turcotte and Lehner",
-    "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-    "price": 450,
-    "image": "https://loremflickr.com/640/480/business"
-  },
-  {
-    "name": "Unbranded Bronze Mouse",
-    "make": "Blanda, Ritchie and Thompson",
-    "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-    "price": 815,
-    "image": "https://loremflickr.com/640/480/business"
-  },
-  {
-    "name": "Refined Cotton Towels",
-    "make": "Durgan Group",
-    "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-    "price": 698,
-    "image": "https://loremflickr.com/640/480/business"
-  },
-  {
-    "name": "Oriental Fresh Chips",
-    "make": "Larson - Daugherty",
-    "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-    "price": 568,
-    "image": "https://loremflickr.com/640/480/business"
-  },
-  {
-    "name": "Incredible Metal Soap",
-    "make": "Trantow and Sons",
-    "description": "The Football Is Good For Training And Recreational Purposes",
-    "price": 562,
-    "image": "https://loremflickr.com/640/480/business"
-  },
-  {
-    "name": "Fantastic Wooden Tuna",
-    "make": "Will Group",
+    "name": "Bespoke Steel Bike",
+    "section": "Outdoors",
+    "make": "Herzog - Bartoletti",
     "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-    "price": 46,
+    "price": 124,
+    "image": "https://loremflickr.com/640/480/business"
+  },
+  {
+    "name": "Modern Fresh Gloves",
+    "section": "Kids",
+    "make": "Boehm - Gleason",
+    "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+    "price": 216,
+    "image": "https://loremflickr.com/640/480/business"
+  },
+  {
+    "name": "Awesome Fresh Fish",
+    "section": "Kids",
+    "make": "D'Amore LLC",
+    "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+    "price": 843,
+    "image": "https://loremflickr.com/640/480/business"
+  },
+  {
+    "name": "Incredible Concrete Table",
+    "section": "Electronics",
+    "make": "O'Keefe Inc",
+    "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+    "price": 704,
+    "image": "https://loremflickr.com/640/480/business"
+  },
+  {
+    "name": "Modern Wooden Towels",
+    "section": "Games",
+    "make": "Goodwin - Johns",
+    "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+    "price": 743,
+    "image": "https://loremflickr.com/640/480/business"
+  },
+  {
+    "name": "Sleek Steel Salad",
+    "section": "Jewelery",
+    "make": "Rice Inc",
+    "description": "The Football Is Good For Training And Recreational Purposes",
+    "price": 429,
+    "image": "https://loremflickr.com/640/480/business"
+  },
+  {
+    "name": "Luxurious Soft Hat",
+    "section": "Clothing",
+    "make": "Flatley - Reichel",
+    "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+    "price": 282,
+    "image": "https://loremflickr.com/640/480/business"
+  },
+  {
+    "name": "Bespoke Rubber Sausages",
+    "section": "Kids",
+    "make": "Luettgen - Daugherty",
+    "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+    "price": 4,
+    "image": "https://loremflickr.com/640/480/business"
+  },
+  {
+    "name": "Sleek Metal Towels",
+    "section": "Grocery",
+    "make": "Bogisich LLC",
+    "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+    "price": 526,
+    "image": "https://loremflickr.com/640/480/business"
+  },
+  {
+    "name": "Tasty Fresh Car",
+    "section": "Garden",
+    "make": "Farrell - Rice",
+    "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+    "price": 290,
+    "image": "https://loremflickr.com/640/480/business"
+  },
+  {
+    "name": "Intelligent Plastic Bike",
+    "section": "Home",
+    "make": "Doyle Inc",
+    "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+    "price": 84,
+    "image": "https://loremflickr.com/640/480/business"
+  },
+  {
+    "name": "Electronic Metal Tuna",
+    "section": "Movies",
+    "make": "Wuckert, Schulist and Casper",
+    "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+    "price": 274,
+    "image": "https://loremflickr.com/640/480/business"
+  },
+  {
+    "name": "Unbranded Granite Towels",
+    "section": "Toys",
+    "make": "Lebsack Group",
+    "description": "The Football Is Good For Training And Recreational Purposes",
+    "price": 124,
+    "image": "https://loremflickr.com/640/480/business"
+  },
+  {
+    "name": "Practical Fresh Computer",
+    "section": "Industrial",
+    "make": "Altenwerth - Herzog",
+    "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+    "price": 475,
+    "image": "https://loremflickr.com/640/480/business"
+  },
+  {
+    "name": "Sleek Concrete Keyboard",
+    "section": "Books",
+    "make": "Schroeder Inc",
+    "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+    "price": 209,
+    "image": "https://loremflickr.com/640/480/business"
+  },
+  {
+    "name": "Tasty Rubber Ball",
+    "section": "Outdoors",
+    "make": "Terry Group",
+    "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+    "price": 916,
+    "image": "https://loremflickr.com/640/480/business"
+  },
+  {
+    "name": "Oriental Granite Towels",
+    "section": "Outdoors",
+    "make": "Lang, Orn and Parker",
+    "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+    "price": 35,
+    "image": "https://loremflickr.com/640/480/business"
+  },
+  {
+    "name": "Intelligent Steel Soap",
+    "section": "Garden",
+    "make": "Waelchi - Wuckert",
+    "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+    "price": 233,
     "image": "https://loremflickr.com/640/480/business"
   }
 ]

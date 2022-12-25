@@ -21,6 +21,7 @@ let products = []
 for (let i = 0; i < 20; i++) {
   const product = {
     name: faker.commerce.productName(),
+    section: faker.commerce.department(),
     make: faker.company.name(),
     description: faker.commerce.productDescription(),
     price: parseFloat(faker.commerce.price()),
